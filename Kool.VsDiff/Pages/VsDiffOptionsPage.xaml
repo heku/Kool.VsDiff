@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Kool.VsDiff.Pages.DiffToolOptionsPage"
+             x:ClassModifier="internal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+        <GroupBox Padding="0,5">
+            <GroupBox.Header>
+                <CheckBox IsChecked="{Binding UseCustomDiffTool}" Content="Use custom diff tool"></CheckBox>
+            </GroupBox.Header>
+            <StackPanel IsEnabled="{Binding UseCustomDiffTool, Mode=OneWay}">
+                <TextBlock>Diff tool path</TextBlock>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="CustomDiffToolPath" VerticalContentAlignment="Center" Text="{Binding CustomDiffToolPath, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <Button Grid.Column="1" Width="40" Height="25" Content="..." Click="OnBrowseButtonClicked"></Button>
+                </Grid>
+                <TextBlock Margin="0,5,0,0">Arguments ($FILE1, $FILE2)</TextBlock>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox VerticalContentAlignment="Center" Text="{Binding CustomDiffToolArgs, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <Button Grid.Column="1" Width="40" Height="25" Content="TEST" Click="OnTestButtonClicked"></Button>
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+        <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithCodeEnabled}" Content="Enable diff Clipboard text with selected code."></CheckBox>
+        <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithFileEnabled}" Content="Enable diff Clipboard text with selected file."></CheckBox>
+        <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiagnosticsMode}" Content="Enable diagnostics mode."></CheckBox>
+    </StackPanel>
+</UserControl>
