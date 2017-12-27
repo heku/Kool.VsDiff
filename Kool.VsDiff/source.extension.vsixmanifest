@@ -3,7 +3,7 @@
     <Metadata>
         <Identity Id="Kool.VsDiff.45821f83-c54b-469f-b733-0a65cfc32fe6" Version="0.9" Language="en-US" Publisher="Heku" />
         <DisplayName>VS Diff</DisplayName>
-        <Description xml:space="preserve">VS Diff is an open sourced Visual Studio extension tool, which makes it easier to diff two files or code.</Description>
+        <Description xml:space="preserve">VS Diff is an open sourced Visual Studio extension tool, which makes it more easily to compare files and code.</Description>
         <MoreInfo>https://github.com/heku/Kool</MoreInfo>
         <Icon>Resources\Logo.ico</Icon>
         <PreviewImage>Resources\Preview.png</PreviewImage>
