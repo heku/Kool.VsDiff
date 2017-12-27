@@ -1,16 +1,17 @@
-﻿using System.Reflection;
+﻿using Kool.VsDiff;
+using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VsDiff")]
+[assembly: AssemblyTitle(Vsix.PRODUCT + "." + Vsix.PACKAGE_NAME)]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("VS Diff")]
-[assembly: AssemblyCopyright("https://github.com/heku/Kool")]
+[assembly: AssemblyProduct(Vsix.PACKAGE_NAME)]
+[assembly: AssemblyCopyright("https://github.com/heku/kool.vsdiff")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
