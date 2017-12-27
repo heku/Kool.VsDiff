@@ -21,7 +21,11 @@ namespace Kool.VsDiff.Pages
             var dialog = new Microsoft.Win32.OpenFileDialog();
             if (!string.IsNullOrWhiteSpace(_options.CustomDiffToolPath))
             {
-                dialog.InitialDirectory = Path.GetDirectoryName(_options.CustomDiffToolPath);
+                var dir = Path.GetDirectoryName(_options.CustomDiffToolPath);
+                if (Directory.Exists(dir))
+                {
+                    dialog.InitialDirectory = dir;
+                }
             }
             if (dialog.ShowDialog() == true)
             {
