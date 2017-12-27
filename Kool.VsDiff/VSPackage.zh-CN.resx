@@ -121,10 +121,34 @@
     <value>VS Diff</value>
   </data>
   <data name="112" xml:space="preserve">
-    <value>VS Diff 是一个开源的 Visual Studio 拓展工具，方便用户对文件或代码进行对比。</value>
+    <value>VS Diff 是一个开源的 Visual Studio 拓展工具，方便用户对文件、代码进行比较。</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="400" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Logo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OptionsPage_Arguments" xml:space="preserve">
+    <value>参数 ($FILE1, $FILE2)</value>
+  </data>
+  <data name="OptionsPage_DiffToolPath" xml:space="preserve">
+    <value>比较工具路径</value>
+  </data>
+  <data name="OptionsPage_EnableDiagnosticsMode" xml:space="preserve">
+    <value>启用诊断模式</value>
+  </data>
+  <data name="OptionsPage_EnableDiffClipboardWithCode" xml:space="preserve">
+    <value>启用选中代码与剪贴板内容的比较功能</value>
+  </data>
+  <data name="OptionsPage_EnableDiffClipboardWithFile" xml:space="preserve">
+    <value>启用选中文件与剪贴板内容的比较功能</value>
+  </data>
+  <data name="OptionsPage_ErrorMessageTitle" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="OptionsPage_TestButtonContent" xml:space="preserve">
+    <value>测试</value>
+  </data>
+  <data name="OptionsPage_UseCustomDiffTool" xml:space="preserve">
+    <value>自定义比较工具</value>
   </data>
 </root>

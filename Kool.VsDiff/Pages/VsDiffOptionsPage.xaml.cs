@@ -44,8 +44,7 @@ namespace Kool.VsDiff.Pages
             }
             catch (Exception ex)
             {
-                //TODO:localization
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, Models.Resources.OptionsPage_ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

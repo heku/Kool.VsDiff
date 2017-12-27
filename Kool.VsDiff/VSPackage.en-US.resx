@@ -127,4 +127,28 @@
   <data name="400" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Logo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="OptionsPage_Arguments" xml:space="preserve">
+    <value>Arguments ($FILE1, $FILE2)</value>
+  </data>
+  <data name="OptionsPage_DiffToolPath" xml:space="preserve">
+    <value>Diff tool path</value>
+  </data>
+  <data name="OptionsPage_EnableDiagnosticsMode" xml:space="preserve">
+    <value>Enable diagnostics mode.</value>
+  </data>
+  <data name="OptionsPage_EnableDiffClipboardWithCode" xml:space="preserve">
+    <value>Enable compare Clipboard content with selected code.</value>
+  </data>
+  <data name="OptionsPage_EnableDiffClipboardWithFile" xml:space="preserve">
+    <value>Enable compare Clipboard content with selected file.</value>
+  </data>
+  <data name="OptionsPage_ErrorMessageTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="OptionsPage_TestButtonContent" xml:space="preserve">
+    <value>TEST</value>
+  </data>
+  <data name="OptionsPage_UseCustomDiffTool" xml:space="preserve">
+    <value>Use custom diff tool</value>
+  </data>
 </root>

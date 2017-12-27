@@ -61,6 +61,7 @@
     <Compile Include="Models\CustomDiffTool.cs" />
     <Compile Include="Models\DiffToolFactory.cs" />
     <Compile Include="Models\IDiffTool.cs" />
+    <Compile Include="Models\Resources.cs" />
     <Compile Include="Models\TempFileHelper.cs" />
     <Compile Include="Models\VS.cs" />
     <Compile Include="Models\VsDiffTool.cs" />

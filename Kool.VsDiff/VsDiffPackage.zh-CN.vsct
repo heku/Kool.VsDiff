@@ -29,7 +29,7 @@
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
-          <ButtonText>和剪贴板内容比对</ButtonText>
+          <ButtonText>和剪贴板内容比较</ButtonText>
         </Strings>
       </Button>
       <!--Compare selected file with Clipboard-->
@@ -39,7 +39,7 @@
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
-          <ButtonText>和剪贴板内容比对</ButtonText>
+          <ButtonText>和剪贴板内容比较</ButtonText>
         </Strings>
       </Button>
     </Buttons>

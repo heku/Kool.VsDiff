@@ -16,7 +16,6 @@ namespace Kool.VsDiff
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideAutoLoad(UIContextGuids80.SolutionExists, PackageAutoLoadFlags.BackgroundLoad)]
     [ProvideOptionPage(typeof(VsDiffOptions), Vsix.PRODUCT, Vsix.PACKAGE, 0, 0, true)]
-    [ProvideBindingPath]
     public sealed class VsDiffPackage : Package
     {
         public DTE2 IDE { get; private set; }
