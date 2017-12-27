@@ -1,6 +1,7 @@
 ﻿using Kool.VsDiff.Models;
 using Microsoft.VisualStudio.Shell;
 using System;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows;
 
@@ -30,6 +31,13 @@ namespace Kool.VsDiff.Pages
         public string CustomDiffToolArgs { get; set; }
 
         protected override UIElement Child => _page;
+
+        protected override void OnActivate(CancelEventArgs e)
+        {
+            base.OnActivate(e);
+            // Force update style so that VS Enironment Font Settings are applied.
+            _page.UpdateDefaultStyle();
+        }
 
         public override void ResetSettings()
         {
