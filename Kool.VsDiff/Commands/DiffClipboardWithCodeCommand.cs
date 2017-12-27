@@ -1,7 +1,6 @@
 ﻿using EnvDTE;
 using Kool.VsDiff.Models;
 using System.IO;
-using System.Windows;
 
 namespace Kool.VsDiff.Commands
 {
@@ -15,7 +14,7 @@ namespace Kool.VsDiff.Commands
             package.CommandService.AddCommand(Instance);
         }
 
-        private string _selectedText;
+        private string _selectionText;
         private string _clipboardText;
 
         private DiffClipboardWithCodeCommand(VsDiffPackage package) : base(package, Ids.CMD_SET, Ids.DIFF_CLIPBOARD_WITH_CODE_CMD_ID)
@@ -27,30 +26,24 @@ namespace Kool.VsDiff.Commands
         protected override void OnBeforeQueryStatus()
         {
             Visible = Package.Options.DiffClipboardWithCodeEnabled
-                && TryGetClipboardText()
-                && TryGetSelectedText();
+                && ClipboardHelper.TryGetClipboardText(out _clipboardText)
+                && TryGetSelectionText();
         }
 
-        private bool TryGetClipboardText()
+        private bool TryGetSelectionText()
         {
-            _clipboardText = Clipboard.GetText();
-            return _clipboardText?.Length > 0;
-        }
-
-        private bool TryGetSelectedText()
-        {
-            _selectedText = (ActiveDocument.Selection as TextSelection)?.Text;
-            return _selectedText?.Length > 0;
+            _selectionText = (ActiveDocument.Selection as TextSelection)?.Text;
+            return _selectionText?.Length > 0;
         }
 
         protected override void OnExecute()
         {
             var extension = Path.GetExtension(ActiveDocument.Name);
 
-            var selection = TempFileHelper.CreateTempFile("Selection", extension, _selectedText);
-            var clipboard = TempFileHelper.CreateTempFile("Clipboard", extension, _clipboardText);
+            var selectionFile = TempFileHelper.CreateTempFile("Selection", extension, _selectionText);
+            var clipboardFile = TempFileHelper.CreateTempFile("Clipboard", extension, _clipboardText);
 
-            DiffToolFactory.CreateDiffTool().Diff(clipboard, selection);
+            DiffToolFactory.CreateDiffTool().Diff(clipboardFile, selectionFile);
         }
     }
 }

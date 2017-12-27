@@ -1,6 +1,5 @@
 ﻿using Kool.VsDiff.Models;
 using System.IO;
-using System.Windows;
 using static Kool.VsDiff.Models.VS;
 
 namespace Kool.VsDiff.Commands
@@ -15,8 +14,8 @@ namespace Kool.VsDiff.Commands
             package.CommandService.AddCommand(Instance);
         }
 
-        private string _clipboardText;
         private string _selectedFile;
+        private string _clipboardText;
 
         private DiffClipboardWithFileCommand(VsDiffPackage package) : base(package, Ids.CMD_SET, Ids.DIFF_CLIPBOARD_WITH_FILE_CMD_ID)
         {
@@ -25,14 +24,8 @@ namespace Kool.VsDiff.Commands
         protected override void OnBeforeQueryStatus()
         {
             Visible = Package.Options.DiffClipboardWithFileEnabled
-                && TryGetClipboardText()
+                && ClipboardHelper.TryGetClipboardText(out _clipboardText)
                 && SolutionExplorer.TryGetSingleSelectedFile(out _selectedFile);
-        }
-
-        private bool TryGetClipboardText()
-        {
-            _clipboardText = Clipboard.GetText();
-            return _clipboardText?.Length > 0;
         }
 
         protected override void OnExecute()

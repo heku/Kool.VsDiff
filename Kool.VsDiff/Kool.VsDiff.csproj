@@ -57,6 +57,7 @@
     <Compile Include="Commands\DiffClipboardWithCodeCommand.cs" />
     <Compile Include="Commands\DiffSelectedFilesCommand.cs" />
     <Compile Include="Commands\DiffClipboardWithFileCommand.cs" />
+    <Compile Include="Models\ClipboardHelper.cs" />
     <Compile Include="Models\CustomDiffTool.cs" />
     <Compile Include="Models\DiffToolFactory.cs" />
     <Compile Include="Models\IDiffTool.cs" />
