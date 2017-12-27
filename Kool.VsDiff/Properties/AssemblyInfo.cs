@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle(Vsix.PRODUCT + "." + Vsix.PACKAGE_NAME)]
+[assembly: AssemblyTitle(Vsix.PRODUCT + "." + Vsix.PACKAGE)]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct(Vsix.PACKAGE_NAME)]
+[assembly: AssemblyProduct(Vsix.PACKAGE)]
 [assembly: AssemblyCopyright("https://github.com/heku/kool.vsdiff")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -30,8 +30,7 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion(Vsix.Version)]
 
 // https://docs.microsoft.com/en-us/visualstudio/extensibility/localizing-menu-commands
 // https://www.codeproject.com/Tips/648517/Error-Resolved-IOException-Cannot-locate-resource

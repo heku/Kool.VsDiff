@@ -4,6 +4,6 @@
     {
         public const string Version = "0.9";
         public const string PRODUCT = "Kool";
-        public const string PACKAGE_NAME = "VS Diff";
+        public const string PACKAGE = "VS Diff";
     }
 }
