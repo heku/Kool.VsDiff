@@ -6,15 +6,14 @@
 
   <Commands package="guidPackage">
     <Groups>
-      <Group guid="guidCmdSet" id="DIFF_SELECTED_FILES_MENU_GROUP" />
-      <Group guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_MENU_GROUP" />
-      <Group guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_FILE_MENU_GROUP" />
+      <Group guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" />
+      <Group guid="guidCmdSet" id="SOLUTION_EXPLORER_ITEM_MENU_GROUP" />
+      <Group guid="guidCmdSet" id="SOLUTION_EXPLORER_XPROJ_ITEM_MENU_GROUP" />
     </Groups>
 
     <Buttons>
       <!--Compare two selected files-->
-      <Button guid="guidCmdSet" id="DIFF_SELECTED_FILES_CMD_ID" priority="0x0100" type="Button">
-        <Parent guid="guidCmdSet" id="DIFF_SELECTED_FILES_MENU_GROUP" />
+      <Button guid="guidCmdSet" id="DIFF_SELECTED_FILES_CMD_ID" type="Button">
         <Icon guid="guidImages" id="diffCmdPic" />
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
@@ -22,9 +21,9 @@
           <ButtonText>Compare Selected Files</ButtonText>
         </Strings>
       </Button>
-      <!--Compare selected code with Clipboard-->
-      <Button guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_CMD_ID" priority="0x0100" type="Button">
-        <Parent guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_MENU_GROUP" />
+      <!--Compare selected file with Clipboard-->
+      <Button guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_FILE_CMD_ID" priority="0x0100" type="Button">
+        <Parent guid="guidCmdSet" id="SOLUTION_EXPLORER_ITEM_MENU_GROUP" />
         <Icon guid="guidImages" id="diffCmdPic" />
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
@@ -32,9 +31,9 @@
           <ButtonText>Compare With Clipboard</ButtonText>
         </Strings>
       </Button>
-      <!--Compare selected file with Clipboard-->
-      <Button guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_FILE_CMD_ID" priority="0x0100" type="Button">
-        <Parent guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_FILE_MENU_GROUP" />
+      <!--Compare selected code with Clipboard-->
+      <Button guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_CMD_ID" priority="0x0100" type="Button">
+        <Parent guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" />
         <Icon guid="guidImages" id="diffCmdPic" />
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
@@ -56,51 +55,48 @@
   </Commands>
 
   <CommandPlacements>
-    <CommandPlacement guid="guidCmdSet" id="DIFF_SELECTED_FILES_MENU_GROUP" priority="0x0600">
+    <CommandPlacement guid="guidCmdSet" id="DIFF_SELECTED_FILES_CMD_ID" priority="0x0000">
+      <Parent guid="guidCmdSet" id="SOLUTION_EXPLORER_ITEM_MENU_GROUP" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidCmdSet" id="DIFF_SELECTED_FILES_CMD_ID" priority="0x0000">
+      <Parent guid="guidCmdSet" id="SOLUTION_EXPLORER_XPROJ_ITEM_MENU_GROUP" />
+    </CommandPlacement>
+
+    <CommandPlacement guid="guidCmdSet" id="SOLUTION_EXPLORER_ITEM_MENU_GROUP" priority="0x0600">
       <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE" />
     </CommandPlacement>
-    <CommandPlacement guid="guidCmdSet" id="DIFF_SELECTED_FILES_MENU_GROUP" priority="0x0600">
+    <CommandPlacement guid="guidCmdSet" id="SOLUTION_EXPLORER_XPROJ_ITEM_MENU_GROUP" priority="0x0600">
       <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_XPROJ_MULTIITEM" />
     </CommandPlacement>
-    <!--<CommandPlacement guid="guidCmdSet" id="DIFF_SELECTED_FILES_MENU_GROUP" priority="0x0600">
-      <Parent guid="GuidVisualStudioGitChangesContextMenu" id="IDVisualStudioGitChangesContextMenu" />
-    </CommandPlacement>-->
 
-    <CommandPlacement guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_FILE_MENU_GROUP" priority="0x0600">
-      <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE" />
-    </CommandPlacement>
-    <!--<CommandPlacement guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_FILE_MENU_GROUP" priority="0x0600">
-      <Parent guid="GuidVisualStudioGitChangesContextMenu" id="IDVisualStudioGitChangesContextMenu" />
-    </CommandPlacement>-->
-
-    <CommandPlacement guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_MENU_GROUP" priority="0x9999">
+    <CommandPlacement guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" priority="0xFFFF">
       <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN" />
     </CommandPlacement>
-    <CommandPlacement guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_MENU_GROUP" priority="0x9999">
+    <CommandPlacement guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" priority="0xFFFF">
       <Parent guid="GuidVisualStudioCSSWindowContextMenu" id="IDVisualStudioCSSWindowContextMenu" />
     </CommandPlacement>
-    <CommandPlacement guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_MENU_GROUP" priority="0x9999">
+    <CommandPlacement guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" priority="0xFFFF">
       <Parent guid="GuidVisualStudioCSSDocumentContextMenu" id="IDVisualStudioCSSDocumentContextMenu" />
     </CommandPlacement>
-    <CommandPlacement guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_MENU_GROUP" priority="0x9999">
+    <CommandPlacement guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" priority="0xFFFF">
       <Parent guid="GuidVisualStudioHTMLWindowContextMenu" id="IDVisualStudioASPXWindowContextMenu" />
     </CommandPlacement>
-    <CommandPlacement guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_MENU_GROUP" priority="0x9999">
+    <CommandPlacement guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" priority="0xFFFF">
       <Parent guid="GuidVisualStudioHTMLWindowContextMenu" id="IDVisualStudioASPXCodeWindowContextMenu" />
     </CommandPlacement>
-    <CommandPlacement guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_MENU_GROUP" priority="0x9999">
+    <CommandPlacement guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" priority="0xFFFF">
       <Parent guid="GuidVisualStudioHTMLWindowContextMenu" id="IDVisualStudioHTMLWindowContextMenu" />
     </CommandPlacement>
-    <CommandPlacement guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_MENU_GROUP" priority="0x9999">
+    <CommandPlacement guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" priority="0xFFFF">
       <Parent guid="GuidVisualStudioHTMLWindowContextMenu" id="IDVisualStudioScriptWindowContextMenu" />
     </CommandPlacement>
-    <CommandPlacement guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_MENU_GROUP" priority="0x9999">
+    <CommandPlacement guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" priority="0xFFFF">
       <Parent guid="GuidVisualStudioHTMLDocumentContextMenu" id="IDVisualStudioHTMLDocumentContextMenu" />
     </CommandPlacement>
-    <CommandPlacement guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_MENU_GROUP" priority="0x9999">
+    <CommandPlacement guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" priority="0xFFFF">
       <Parent guid="GuidVisualStudioJSONDocumentContextMenu" id="IDVisualStudioJSONDocumentContextMenu" />
     </CommandPlacement>
-    <CommandPlacement guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_MENU_GROUP" priority="0x9999">
+    <CommandPlacement guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" priority="0xFFFF">
       <Parent guid="GuidVisualStudioXAMLWindowContextMenu" id="IDVisualStudioXAMLWindowContextMenu" />
     </CommandPlacement>
   </CommandPlacements>
@@ -111,9 +107,9 @@
 
     <!-- This is the guid used to group the menu commands together -->
     <GuidSymbol name="guidCmdSet" value="{b74e3496-bf29-45f5-a058-ddcecd8aa525}">
-      <IDSymbol name="DIFF_SELECTED_FILES_MENU_GROUP" value="0x1020" />
-      <IDSymbol name="DIFF_CLIPBOARD_WITH_CODE_MENU_GROUP" value="0x1021" />
-      <IDSymbol name="DIFF_CLIPBOARD_WITH_FILE_MENU_GROUP" value="0x1022" />
+      <IDSymbol name="CODE_EDITOR_MENU_GROUP" value="0x1020" />
+      <IDSymbol name="SOLUTION_EXPLORER_ITEM_MENU_GROUP" value="0x1021" />
+      <IDSymbol name="SOLUTION_EXPLORER_XPROJ_ITEM_MENU_GROUP" value="0x1022" />
 
       <IDSymbol name="DIFF_SELECTED_FILES_CMD_ID" value="0x0100" />
       <IDSymbol name="DIFF_CLIPBOARD_WITH_CODE_CMD_ID" value="0x0110" />
