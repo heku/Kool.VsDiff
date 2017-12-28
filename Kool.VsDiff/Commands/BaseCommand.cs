@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.Shell;
+﻿using Kool.VsDiff.Models;
+using Microsoft.VisualStudio.Shell;
 using System;
 using System.ComponentModel.Design;
 using static Kool.VsDiff.Models.VS;
@@ -45,6 +46,7 @@ namespace Kool.VsDiff.Commands
             }
             catch (Exception ex)
             {
+                MessageBox.Error(Resources.ErrorMessageTitle, ex.Message);
                 OutputWindow.Error($"Failed to execute command {commandName}.", ex);
             }
         }

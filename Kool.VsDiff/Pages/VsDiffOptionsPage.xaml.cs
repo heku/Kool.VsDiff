@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 
 namespace Kool.VsDiff.Pages
 {
@@ -18,7 +19,7 @@ namespace Kool.VsDiff.Pages
 
         private void OnBrowseButtonClicked(object sender, RoutedEventArgs e)
         {
-            var dialog = new Microsoft.Win32.OpenFileDialog();
+            var dialog = new OpenFileDialog();
             if (!string.IsNullOrWhiteSpace(_options.CustomDiffToolPath))
             {
                 var dir = Path.GetDirectoryName(_options.CustomDiffToolPath);
@@ -44,7 +45,7 @@ namespace Kool.VsDiff.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, Models.Resources.OptionsPage_ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                VS.MessageBox.Error(Models.Resources.ErrorMessageTitle, ex.Message);
             }
         }
     }

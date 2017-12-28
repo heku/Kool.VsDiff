@@ -8,6 +8,8 @@ namespace Kool.VsDiff.Models
         private const string PACKAGE_RESX_FILE_NAME = "VSPackage";
         private static readonly ResourceManager Resx = new ResourceManager(PACKAGE_RESX_FILE_NAME, Assembly.GetExecutingAssembly());
 
+        public static string ErrorMessageTitle { get; } = Resx.GetString(nameof(ErrorMessageTitle));
+
         public static string OptionsPage_UseCustomDiffTool { get; } = Resx.GetString(nameof(OptionsPage_UseCustomDiffTool));
 
         public static string OptionsPage_DiffToolPath { get; } = Resx.GetString(nameof(OptionsPage_DiffToolPath));
@@ -21,7 +23,5 @@ namespace Kool.VsDiff.Models
         public static string OptionsPage_EnableDiagnosticsMode { get; } = Resx.GetString(nameof(OptionsPage_EnableDiagnosticsMode));
 
         public static string OptionsPage_TestButtonContent { get; } = Resx.GetString(nameof(OptionsPage_TestButtonContent));
-
-        public static string OptionsPage_ErrorMessageTitle { get; } = Resx.GetString(nameof(OptionsPage_ErrorMessageTitle));
     }
 }

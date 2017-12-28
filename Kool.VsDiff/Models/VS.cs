@@ -1,4 +1,5 @@
 ﻿using EnvDTE;
+using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.Diagnostics;
@@ -131,6 +132,23 @@ namespace Kool.VsDiff.Models
                 var projectNames = projectItems.Select(x => x.FileNames[1]);
                 var fileNames = projectNames.Where(name => name != null && !name.EndsWith(Path.DirectorySeparatorChar.ToString()));
                 return fileNames.ToArray();
+            }
+        }
+
+        public static class MessageBox
+        {
+            public static void Info(string title, string message)
+                => Show(title, message, OLEMSGICON.OLEMSGICON_INFO, OLEMSGBUTTON.OLEMSGBUTTON_OK, OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+
+            public static void Warning(string title, string message)
+                => Show(title, message, OLEMSGICON.OLEMSGICON_WARNING, OLEMSGBUTTON.OLEMSGBUTTON_OK, OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+
+            public static void Error(string title, string message)
+                => Show(title, message, OLEMSGICON.OLEMSGICON_CRITICAL, OLEMSGBUTTON.OLEMSGBUTTON_OK, OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+
+            public static void Show(string title, string message, OLEMSGICON icon, OLEMSGBUTTON button, OLEMSGDEFBUTTON defaultButton)
+            {
+                VsShellUtilities.ShowMessageBox(Package, message, title, icon, button, defaultButton);
             }
         }
     }
