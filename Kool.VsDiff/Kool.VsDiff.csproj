@@ -203,8 +203,8 @@
     <Content Include="Resources\Preview.png">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="zh-CN\source.extension.vsixlangpack">
-      <SubType>Designer</SubType>
+    <Content Include="zh-CN\extension.vsixlangpack">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <VSCTCompile Include="VsDiffPackage.en-US.vsct">
