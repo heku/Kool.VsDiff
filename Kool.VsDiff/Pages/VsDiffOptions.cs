@@ -35,7 +35,7 @@ namespace Kool.VsDiff.Pages
         protected override void OnActivate(CancelEventArgs e)
         {
             base.OnActivate(e);
-            // Force update style so that VS Enironment Font Settings are applied.
+            // Ensure VS Environment Font Settings are applied.
             _page.UpdateDefaultStyle();
         }
 
