@@ -3,9 +3,5 @@
   <Metadata>
     <DisplayName>VS Diff</DisplayName>
     <Description>VS Diff 是一个开源的 Visual Studio 拓展工具，方便用户对文件、代码进行比较。</Description>
-    <MoreInfo>https://github.com/heku/kool.vsdiff</MoreInfo>
-    <License></License>
-    <ReleaseNotes></ReleaseNotes>
-    <Icon>Resources\Logo.ico</Icon>
   </Metadata>
 </PackageLanguagePackManifest>
