@@ -5,5 +5,6 @@
         public const string Version = "0.9";
         public const string PRODUCT = "Kool";
         public const string PACKAGE = "VS Diff";
+        public const string URL = "https://github.com/heku/kool.vsdiff";
     }
 }

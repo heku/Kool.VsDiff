@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct(Vsix.PACKAGE)]
-[assembly: AssemblyCopyright("https://github.com/heku/kool.vsdiff")]
+[assembly: AssemblyCopyright(Vsix.URL)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
