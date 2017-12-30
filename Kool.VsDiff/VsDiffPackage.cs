@@ -12,7 +12,7 @@ namespace Kool.VsDiff
 {
     [Guid(Ids.PACKAGE)]
     [PackageRegistration(UseManagedResourcesOnly = true)]
-    [InstalledProductRegistration("#110", "#112", Vsix.Version, IconResourceID = 400)]
+    [InstalledProductRegistration("#110", "#112", Vsix.VERSION, IconResourceID = 400)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideAutoLoad(UIContextGuids80.SolutionExists)]
     [ProvideOptionPage(typeof(VsDiffOptions), Vsix.PRODUCT, Vsix.PACKAGE, 0, 0, true)]
