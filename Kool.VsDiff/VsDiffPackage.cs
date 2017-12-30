@@ -14,20 +14,16 @@ namespace Kool.VsDiff
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [InstalledProductRegistration("#110", "#112", Vsix.Version, IconResourceID = 400)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [ProvideAutoLoad(UIContextGuids80.SolutionExists, PackageAutoLoadFlags.BackgroundLoad)]
+    [ProvideAutoLoad(UIContextGuids80.SolutionExists)]
     [ProvideOptionPage(typeof(VsDiffOptions), Vsix.PRODUCT, Vsix.PACKAGE, 0, 0, true)]
     public sealed class VsDiffPackage : Package
     {
-        public DTE2 IDE { get; private set; }
-
-        public OleMenuCommandService CommandService { get; private set; }
+        internal DTE2 IDE { get; private set; }
 
         internal VsDiffOptions Options { get; private set; }
 
-        /// <summary>
-        /// Initialization of the package; this method is called right after the package is sited, so this is the place
-        /// where you can put all the initialization code that rely on services provided by VisualStudio.
-        /// </summary>
+        internal OleMenuCommandService CommandService { get; private set; }
+
         protected override void Initialize()
         {
             base.Initialize();
@@ -41,7 +37,7 @@ namespace Kool.VsDiff
 
             DiffSelectedFilesCommand.Initialize(this);
             DiffClipboardWithCodeCommand.Initialize(this);
-            DiffClipboardWithFileCommand.Initialize(this);
+            DiffClipboardWithFileCommand.Initialize(this);            
 
             VS.OutputWindow.Info("Package is sited and initialized.");
         }

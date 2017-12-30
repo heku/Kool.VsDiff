@@ -21,7 +21,7 @@ namespace Kool.VsDiff.Commands
         {
         }
 
-        public Document ActiveDocument => Package.IDE.ActiveDocument;
+        private Document ActiveDocument => Package.IDE.ActiveDocument;
 
         protected override void OnBeforeQueryStatus()
         {

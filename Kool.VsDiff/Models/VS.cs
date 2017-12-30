@@ -1,10 +1,11 @@
 ﻿using EnvDTE;
+using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 
 namespace Kool.VsDiff.Models
 {
@@ -17,7 +18,6 @@ namespace Kool.VsDiff.Models
             Package = package;
 
             OutputWindow.Initialize();
-            SolutionExplorer.Initialize();
         }
 
         public static class OutputWindow
@@ -61,34 +61,27 @@ namespace Kool.VsDiff.Models
             private static void WriteLine(string category, string message)
             {
                 var output = $"{Environment.NewLine}[{Vsix.PACKAGE}] >> {category}:{message}";
-                System.Diagnostics.Debug.Write(output);
-                VsOutputWindowPane.OutputString(output);
+                ErrorHandler.ThrowOnFailure(VsOutputWindowPane.OutputString(output));
             }
         }
 
         public static class SolutionExplorer
         {
-            private static UIHierarchy VsSolutionExplorer;
-
-            public static void Initialize()
-            {
-                VsSolutionExplorer = Package.IDE.ToolWindows.SolutionExplorer;
-            }
+            private static readonly string SystemDirectorySeparator = Path.DirectorySeparatorChar.ToString();
 
             public static bool TryGetSingleSelectedFile(out string file)
             {
                 file = null;
                 try
                 {
-                    var selectedItems = VsSolutionExplorer.SelectedItems as UIHierarchyItem[];
-                    if (selectedItems.Length == 1)
+                    var selectedItems = Package.IDE.SelectedItems;
+                    if (selectedItems.Count != 1) return false;
+
+                    var files = GetFiles(selectedItems);
+                    if (files.Count == 1)
                     {
-                        var files = GetFiles(selectedItems);
-                        if (files.Length == 1)
-                        {
-                            file = files[0];
-                            return !string.IsNullOrEmpty(file);
-                        }
+                        file = files[0];
+                        return !string.IsNullOrEmpty(file);
                     }
                 }
                 catch (Exception ex)
@@ -104,16 +97,15 @@ namespace Kool.VsDiff.Models
                 file1 = file2 = null;
                 try
                 {
-                    var selectedItems = VsSolutionExplorer.SelectedItems as UIHierarchyItem[];
-                    if (selectedItems.Length == 2)
+                    var selectedItems = Package.IDE.SelectedItems;
+                    if (selectedItems.Count != 2) return false;
+
+                    var files = GetFiles(selectedItems);
+                    if (files.Count == 2)
                     {
-                        var files = GetFiles(selectedItems);
-                        if (files.Length == 2)
-                        {
-                            file1 = files[0];
-                            file2 = files[1];
-                            return !string.IsNullOrEmpty(file1) && !string.IsNullOrEmpty(file2);
-                        }
+                        file1 = files[0];
+                        file2 = files[1];
+                        return !string.IsNullOrEmpty(file1) && !string.IsNullOrEmpty(file2);
                     }
                 }
                 catch (Exception ex)
@@ -124,14 +116,23 @@ namespace Kool.VsDiff.Models
                 return false;
             }
 
-            private static string[] GetFiles(UIHierarchyItem[] selectedItems)
+            private static List<string> GetFiles(SelectedItems selectedItems)
             {
-                var projectItems = selectedItems.Select(x => x.Object).OfType<ProjectItem>();
-                // The index of file names from 1 to FileCount for the project item
-                // https://docs.microsoft.com/en-us/dotnet/api/envdte.projectitem.filenames?redirectedfrom=MSDN&view=visualstudiosdk-2017#EnvDTE_ProjectItem_FileNames_System_Int16_
-                var projectNames = projectItems.Select(x => x.FileNames[1]);
-                var fileNames = projectNames.Where(name => name != null && !name.EndsWith(Path.DirectorySeparatorChar.ToString()));
-                return fileNames.ToArray();
+                var files = new List<string>(selectedItems.Count);
+
+                foreach (SelectedItem item in selectedItems)
+                {
+                    // The index of file names from 1 to FileCount for the project item
+                    // https://docs.microsoft.com/en-us/dotnet/api/envdte.projectitem.filenames?redirectedfrom=MSDN&view=visualstudiosdk-2017#EnvDTE_ProjectItem_FileNames_System_Int16_
+                    var name = item.ProjectItem?.FileNames[1];
+                    if (name == null || name.EndsWith(SystemDirectorySeparator))
+                    {
+                        continue;
+                    }
+                    files.Add(name);
+                }
+
+                return files;
             }
         }
 
@@ -148,7 +149,7 @@ namespace Kool.VsDiff.Models
 
             public static void Show(string title, string message, OLEMSGICON icon, OLEMSGBUTTON button, OLEMSGDEFBUTTON defaultButton)
             {
-                VsShellUtilities.ShowMessageBox(Package, message, title, icon, button, defaultButton);
+                ErrorHandler.ThrowOnFailure(VsShellUtilities.ShowMessageBox(Package, message, title, icon, button, defaultButton));
             }
         }
     }
