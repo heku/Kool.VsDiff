@@ -14,7 +14,7 @@ assembly_info:
 before_build:
   - nuget restore
   - ps: Vsix-IncrementVsixVersion | Vsix-UpdateBuildVersion
-  - ps: Vsix-TokenReplacement Kool.VsDiff\source.extension.cs 'Version = "([0-9\\.]+)"' 'Version = "{version}"'
+  - ps: Vsix-TokenReplacement Kool.VsDiff\Vsix.cs 'Version = "([0-9\\.]+)"' 'Version = "{version}"'
 
 build_script:
   - msbuild /p:configuration=Release /p:DeployExtension=false /p:ZipPackageCompressionLevel=normal /v:m
