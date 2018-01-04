@@ -28,7 +28,7 @@
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
-          <ButtonText>Compare With Clipboard</ButtonText>
+          <ButtonText>Compare with Clipboard</ButtonText>
         </Strings>
       </Button>
       <!--Compare selected code with Clipboard-->
@@ -38,7 +38,7 @@
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
-          <ButtonText>Compare With Clipboard</ButtonText>
+          <ButtonText>Compare with Clipboard</ButtonText>
         </Strings>
       </Button>
     </Buttons>
