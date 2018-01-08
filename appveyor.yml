@@ -1,4 +1,4 @@
-version: 1.1.{build}
+version: 1.2.7.{build}
 image: Visual Studio 2017
 
 install:
@@ -21,3 +21,6 @@ build_script:
 
 after_build:
   - ps: if ($env:APPVEYOR_REPO_BRANCH -eq 'master' -or $env:APPVEYOR_REPO_BRANCH -eq 'stable') { Vsix-PushArtifacts }
+
+test: off
+deploy: off
