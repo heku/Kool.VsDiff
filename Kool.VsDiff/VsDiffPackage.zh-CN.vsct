@@ -122,6 +122,7 @@
 
     <!--https://blog.agchapman.com/updating-registry-settings-for-visual-studio-2017/-->
     <!--https://social.msdn.microsoft.com/Forums/en-US/1cb2c324-d8a7-4327-b63e-84d23a6b717b/vsix-enablevsiplogging-how-to-find-commandsmenus-guid-and-id-in-visual-studio2017?forum=vsarch-->
+    <!--https://github.com/codecadwallader/codemaid/blob/a885b8b6f5cb40e38b7f069b29fed824c9d0c980/CodeMaid/CodeMaid.vsct#L963-L984-->
     <!-- These are Visual Studio constants not found in SDK header files (found via VSIPLogging) -->
     <GuidSymbol name="GuidVisualStudioCSSWindowContextMenu" value="{a764e896-518d-11d2-9a89-00c04f79efc3}">
       <IDSymbol name="IDVisualStudioCSSWindowContextMenu" value="0x102" />
