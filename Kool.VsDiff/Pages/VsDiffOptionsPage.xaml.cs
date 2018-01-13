@@ -36,8 +36,8 @@ namespace Kool.VsDiff.Pages
 
         private void OnTestButtonClicked(object sender, RoutedEventArgs e)
         {
-            var file1 = TempFileHelper.CreateTempFile("File1", ".tmp", "$FILE1");
-            var file2 = TempFileHelper.CreateTempFile("File2", ".tmp", "$FILE2");
+            var file1 = TempFileHelper.CreateTempFile("File1.tmp", "$FILE1");
+            var file2 = TempFileHelper.CreateTempFile("File2.tmp", "$FILE2");
 
             try
             {

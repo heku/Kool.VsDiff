@@ -31,8 +31,9 @@ namespace Kool.VsDiff.Commands
         protected override void OnExecute()
         {
             var extension = Path.GetExtension(_selectedFile);
-            var clipboardFile = TempFileHelper.CreateTempFile("Clipboard", extension, _clipboardText);
+            var clipboardFile = TempFileHelper.CreateTempFile("Clipboard" + extension, _clipboardText);
             DiffToolFactory.CreateDiffTool().Diff(clipboardFile, _selectedFile);
+            TempFileHelper.RemoveTempFile(clipboardFile);
         }
     }
 }

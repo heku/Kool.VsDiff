@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct(Vsix.PACKAGE)]
+[assembly: AssemblyProduct(Vsix.PRODUCT)]
 [assembly: AssemblyCopyright(Vsix.URL)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

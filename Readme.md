@@ -9,15 +9,15 @@ You can download it via Visual Studio 2015/2017 'Extensions and Updates' or from
 ## Features
 - Compare two selected files in Solution Explorer.
 
-![CompareSelectedFiles.png](Images/CompareSelectedFiles.png)
+    ![CompareSelectedFiles.png](Images/CompareSelectedFiles.png)
 
 - Compare the selected file with Clipboard content.
 
-![CompareSelectedFileWithClipboard.png](Images/CompareSelectedFileWithClipboard.png)
+    ![CompareSelectedFileWithClipboard.png](Images/CompareSelectedFileWithClipboard.png)
 
 - Compare the selection code with Clipboard content.
 
-![CompareSelectionCodeWithClipboard.png](Images/CompareSelectionCodeWithClipboard.png)
+    ![CompareSelectionCodeWithClipboard.png](Images/CompareSelectionCodeWithClipboard.png)
 
 ## Configurable
 ![Configuration.png](Images/Configuration.png)
@@ -32,3 +32,6 @@ Before and during my development, I took the following documents/projects for re
 - [Git Diff Margin](https://github.com/laurentkempe/GitDiffMargin)
 - [Microsoft Docs](https://docs.microsoft.com/en-us/visualstudio/extensibility/)
 - [VS.DiffAllFiles](https://github.com/deadlydog/VS.DiffAllFiles)
+
+## License
+- [MIT](LICENSE)

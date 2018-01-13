@@ -6,15 +6,27 @@ namespace Kool.VsDiff.Models
 {
     internal static class TempFileHelper
     {
-        public static string CreateTempFile(string name, string extension, string content)
+        public static string CreateTempFile(string fileName, string content)
         {
-            var fileName = $"{name}_{DateTime.UtcNow.ToFileTimeUtc()}{extension}";
-            var tempFile = Path.Combine(Path.GetTempPath(), fileName);
-
+            var path = Path.Combine(Path.GetTempPath(), DateTime.UtcNow.ToFileTimeUtc().ToString());
+            Directory.CreateDirectory(path);    // Ensure temp path exists.
+            var tempFile = Path.Combine(path, fileName);
             File.AppendAllText(tempFile, content, Encoding.Unicode);
             VS.OutputWindow.Debug($"Created temp file {tempFile}");
-
             return tempFile;
+        }
+
+        public static void RemoveTempFile(string fileName)
+        {
+            try
+            {
+                Directory.Delete(Path.GetDirectoryName(fileName), true);
+            }
+            catch (Exception ex)
+            {
+                VS.OutputWindow.Debug($"Failed to remove temp file : {fileName}");
+                VS.OutputWindow.Debug($"Exception : {ex.Message}");
+            }
         }
     }
 }

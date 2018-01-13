@@ -40,10 +40,13 @@ namespace Kool.VsDiff.Commands
         {
             var extension = Path.GetExtension(ActiveDocument.Name);
 
-            var selectionFile = TempFileHelper.CreateTempFile("Selection", extension, _selectionText);
-            var clipboardFile = TempFileHelper.CreateTempFile("Clipboard", extension, _clipboardText);
+            var selectionFile = TempFileHelper.CreateTempFile("Selection" + extension, _selectionText);
+            var clipboardFile = TempFileHelper.CreateTempFile("Clipboard" + extension, _clipboardText);
 
             DiffToolFactory.CreateDiffTool().Diff(clipboardFile, selectionFile);
+
+            TempFileHelper.RemoveTempFile(selectionFile);
+            TempFileHelper.RemoveTempFile(clipboardFile);
         }
     }
 }
