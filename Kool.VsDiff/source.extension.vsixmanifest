@@ -6,7 +6,6 @@
         <Description xml:space="preserve">VS Diff is an open sourced Visual Studio extension tool, which makes it more easily to compare files and code.</Description>
         <MoreInfo>https://github.com/heku/kool.vsdiff</MoreInfo>
         <Icon>Resources\Logo.ico</Icon>
-        <PreviewImage>Resources\Preview.png</PreviewImage>
         <Tags>heku;kool;diff;compare</Tags>
     </Metadata>
     <Installation>

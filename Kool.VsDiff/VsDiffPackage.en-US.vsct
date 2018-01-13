@@ -4,6 +4,9 @@
   <Extern href="stdidcmd.h" />
   <Extern href="vsshlids.h" />
 
+  <!--https://docs.microsoft.com/en-us/visualstudio/extensibility/image-service-and-catalog#how-do-i-use-image-monikers-in-a-vsct-file-->
+  <Include href="KnownImageIds.vsct" />
+
   <Commands package="guidPackage">
     <Groups>
       <Group guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" />
@@ -14,9 +17,11 @@
     <Buttons>
       <!--Compare two selected files-->
       <Button guid="guidCmdSet" id="DIFF_SELECTED_FILES_CMD_ID" type="Button">
-        <Icon guid="guidImages" id="diffCmdPic" />
+        <Icon guid="ImageCatalogGuid" id="CompareFiles" />
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>IconAndText</CommandFlag>
+        <CommandFlag>IconIsMoniker</CommandFlag>
         <Strings>
           <ButtonText>Compare Selected Files</ButtonText>
         </Strings>
@@ -24,9 +29,11 @@
       <!--Compare selected file with Clipboard-->
       <Button guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_FILE_CMD_ID" priority="0x0100" type="Button">
         <Parent guid="guidCmdSet" id="SOLUTION_EXPLORER_ITEM_MENU_GROUP" />
-        <Icon guid="guidImages" id="diffCmdPic" />
+        <Icon guid="ImageCatalogGuid" id="CompareFiles" />
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>IconAndText</CommandFlag>
+        <CommandFlag>IconIsMoniker</CommandFlag>
         <Strings>
           <ButtonText>Compare with Clipboard</ButtonText>
         </Strings>
@@ -34,24 +41,16 @@
       <!--Compare selected code with Clipboard-->
       <Button guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_CMD_ID" priority="0x0100" type="Button">
         <Parent guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" />
-        <Icon guid="guidImages" id="diffCmdPic" />
+        <Icon guid="ImageCatalogGuid" id="CompareFiles" />
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>IconAndText</CommandFlag>
+        <CommandFlag>IconIsMoniker</CommandFlag>
         <Strings>
           <ButtonText>Compare with Clipboard</ButtonText>
         </Strings>
       </Button>
     </Buttons>
-
-    <!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
-    <Bitmaps>
-      <!--  The bitmap id is defined in a way that is a little bit different from the others:
-            the declaration starts with a guid for the bitmap strip, then there is the resource id of the
-            bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
-            inside a button definition. An important aspect of this declaration is that the element id
-            must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-      <Bitmap guid="guidImages" href="Resources\DiffCommand.png" usedList="diffCmdPic" />
-    </Bitmaps>
   </Commands>
 
   <CommandPlacements>
@@ -114,10 +113,6 @@
       <IDSymbol name="DIFF_SELECTED_FILES_CMD_ID" value="0x0100" />
       <IDSymbol name="DIFF_CLIPBOARD_WITH_CODE_CMD_ID" value="0x0110" />
       <IDSymbol name="DIFF_CLIPBOARD_WITH_FILE_CMD_ID" value="0x0120" />
-    </GuidSymbol>
-
-    <GuidSymbol name="guidImages" value="{15113ad4-e6e1-4807-a153-e084fa223182}">
-      <IDSymbol name="diffCmdPic" value="1" />
     </GuidSymbol>
 
     <!--https://blog.agchapman.com/updating-registry-settings-for-visual-studio-2017/-->
