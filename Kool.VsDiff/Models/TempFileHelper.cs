@@ -8,7 +8,7 @@ namespace Kool.VsDiff.Models
     {
         public static string CreateTempFile(string fileName, string content)
         {
-            var path = Path.Combine(Path.GetTempPath(), DateTime.UtcNow.ToFileTimeUtc().ToString());
+            var path = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
             Directory.CreateDirectory(path);    // Ensure temp path exists.
             var tempFile = Path.Combine(path, fileName);
             File.AppendAllText(tempFile, content, Encoding.Unicode);
