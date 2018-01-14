@@ -19,6 +19,7 @@ namespace Kool.VsDiff.Pages
 
         private void OnBrowseButtonClicked(object sender, RoutedEventArgs e)
         {
+            // TODO: How to localize it?
             var dialog = new OpenFileDialog();
             if (!string.IsNullOrWhiteSpace(_options.CustomDiffToolPath))
             {
@@ -42,6 +43,7 @@ namespace Kool.VsDiff.Pages
             try
             {
                 DiffToolFactory.CreateDiffTool().Diff(file1, file2);
+                // Cannot clear temp files here, the extenal tool may be initializing.
             }
             catch (Exception ex)
             {
