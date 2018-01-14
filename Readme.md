@@ -1,6 +1,8 @@
 ## About
 
-[![Build Status](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true)](https://ci.appveyor.com/project/heku/kool-vsdiff/branch/master)
+master|dev
+------|---
+[![Build status](https://ci.appveyor.com/api/projects/status/q0ipkukkvnsj3dss/branch/master?svg=true)](https://ci.appveyor.com/project/heku/kool-vsdiff/branch/master)|[![Build status](https://ci.appveyor.com/api/projects/status/q0ipkukkvnsj3dss/branch/dev?svg=true)](https://ci.appveyor.com/project/heku/kool-vsdiff/branch/dev)
 
 VS Diff is an open sourced Visual Studio extension tool, which makes it more easily to compare files and code.
 
