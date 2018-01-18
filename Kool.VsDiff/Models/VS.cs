@@ -60,7 +60,7 @@ namespace Kool.VsDiff.Models
 
             private static void WriteLine(string category, string message)
             {
-                var output = $"{Environment.NewLine}[{Vsix.PACKAGE}] >> {category}:{message}";
+                var output = $"{Environment.NewLine}[{Vsix.PACKAGE}]>{category}: {message}";
                 ErrorHandler.ThrowOnFailure(VsOutputWindowPane.OutputString(output));
             }
         }
