@@ -11,13 +11,14 @@ namespace Kool.VsDiff.Commands
         public static void Initialize(VsDiffPackage package)
         {
             Instance = new DiffClipboardWithCodeCommand(package);
-            package.CommandService.AddCommand(Instance);
+            Instance.Turn(package.Options.DiffClipboardWithCodeEnabled);
         }
 
         private string _selectionText;
         private string _clipboardText;
 
-        private DiffClipboardWithCodeCommand(VsDiffPackage package) : base(package, Ids.CMD_SET, Ids.DIFF_CLIPBOARD_WITH_CODE_CMD_ID)
+        private DiffClipboardWithCodeCommand(VsDiffPackage package)
+            : base(package, Ids.CMD_SET, Ids.DIFF_CLIPBOARD_WITH_CODE_CMD_ID)
         {
         }
 
@@ -25,8 +26,7 @@ namespace Kool.VsDiff.Commands
 
         protected override void OnBeforeQueryStatus()
         {
-            Visible = Package.Options.DiffClipboardWithCodeEnabled
-                && ClipboardHelper.TryGetClipboardText(out _clipboardText)
+            Visible = ClipboardHelper.TryGetClipboardText(out _clipboardText)
                 && TryGetSelectionText();
         }
 

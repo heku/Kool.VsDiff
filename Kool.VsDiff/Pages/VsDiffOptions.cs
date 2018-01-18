@@ -1,4 +1,5 @@
-﻿using Kool.VsDiff.Models;
+﻿using Kool.VsDiff.Commands;
+using Kool.VsDiff.Models;
 using Microsoft.VisualStudio.Shell;
 using System;
 using System.ComponentModel;
@@ -37,6 +38,14 @@ namespace Kool.VsDiff.Pages
             base.OnActivate(e);
             // Ensure VS Environment Font Settings are applied.
             _page.UpdateDefaultStyle();
+        }
+
+        protected override void OnApply(PageApplyEventArgs e)
+        {
+            DiffClipboardWithCodeCommand.Instance.Turn(DiffClipboardWithCodeEnabled);
+            DiffClipboardWithFileCommand.Instance.Turn(DiffClipboardWithFileEnabled);
+
+            base.OnApply(e);
         }
 
         public override void ResetSettings()

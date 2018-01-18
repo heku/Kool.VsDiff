@@ -8,10 +8,10 @@ namespace Kool.VsDiff.Commands
 {
     internal abstract class BaseCommand : OleMenuCommand
     {
-        protected BaseCommand(VsDiffPackage package, string cmdSet, int cmdId) : base(OnBaseCommandEventHandler, new CommandID(Guid.Parse(cmdSet), cmdId))
+        protected BaseCommand(VsDiffPackage package, string cmdSet, int cmdId)
+            : base(OnBaseCommandEventHandler, null, OnBaseBeforeQueryStatus, new CommandID(Guid.Parse(cmdSet), cmdId))
         {
             Package = package;
-            BeforeQueryStatus += OnBaseBeforeQueryStatus;
         }
 
         protected VsDiffPackage Package { get; }
@@ -56,5 +56,19 @@ namespace Kool.VsDiff.Commands
         }
 
         protected abstract void OnExecute();
+
+        public void Turn(bool featureOn)
+        {
+            if (!featureOn)
+            {
+                Package.CommandService.RemoveCommand(this);
+                return;
+            }
+
+            if (featureOn && Package.CommandService.FindCommand(CommandID) == null)
+            {
+                Package.CommandService.AddCommand(this);
+            }
+        }
     }
 }

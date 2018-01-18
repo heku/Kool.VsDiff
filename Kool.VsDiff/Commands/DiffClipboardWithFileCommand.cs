@@ -11,20 +11,20 @@ namespace Kool.VsDiff.Commands
         public static void Initialize(VsDiffPackage package)
         {
             Instance = new DiffClipboardWithFileCommand(package);
-            package.CommandService.AddCommand(Instance);
+            Instance.Turn(package.Options.DiffClipboardWithCodeEnabled);
         }
 
         private string _selectedFile;
         private string _clipboardText;
 
-        private DiffClipboardWithFileCommand(VsDiffPackage package) : base(package, Ids.CMD_SET, Ids.DIFF_CLIPBOARD_WITH_FILE_CMD_ID)
+        private DiffClipboardWithFileCommand(VsDiffPackage package)
+            : base(package, Ids.CMD_SET, Ids.DIFF_CLIPBOARD_WITH_FILE_CMD_ID)
         {
         }
 
         protected override void OnBeforeQueryStatus()
         {
-            Visible = Package.Options.DiffClipboardWithFileEnabled
-                && ClipboardHelper.TryGetClipboardText(out _clipboardText)
+            Visible = ClipboardHelper.TryGetClipboardText(out _clipboardText)
                 && SolutionExplorer.TryGetSingleSelectedFile(out _selectedFile);
         }
 
