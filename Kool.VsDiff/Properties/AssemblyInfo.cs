@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct(Vsix.PRODUCT)]
-[assembly: AssemblyCopyright(Vsix.URL)]
+[assembly: AssemblyCopyright(Vsix.GITHUB)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

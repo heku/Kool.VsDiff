@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="Kool.VsDiff.45821f83-c54b-469f-b733-0a65cfc32fe6" Version="1.3" Language="en-US" Publisher="Heku" />
+        <Identity Id="Kool.VsDiff.45821f83-c54b-469f-b733-0a65cfc32fe6" Version="1.4" Language="en-US" Publisher="Heku" />
         <DisplayName>VS Diff</DisplayName>
         <Description xml:space="preserve">VS Diff is an open sourced Visual Studio extension tool, which makes it more easily to compare files and code.</Description>
         <MoreInfo>https://github.com/heku/kool.vsdiff</MoreInfo>
