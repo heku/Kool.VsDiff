@@ -45,8 +45,11 @@ namespace Kool.VsDiff.Commands
 
             DiffToolFactory.CreateDiffTool().Diff(clipboardFile, selectionFile);
 
-            TempFileHelper.RemoveTempFile(selectionFile);
-            TempFileHelper.RemoveTempFile(clipboardFile);
+            if (!Package.Options.UseCustomDiffTool)
+            {
+                TempFileHelper.RemoveTempFile(selectionFile);
+                TempFileHelper.RemoveTempFile(clipboardFile);
+            }
         }
     }
 }
