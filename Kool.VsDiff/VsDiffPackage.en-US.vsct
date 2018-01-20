@@ -143,5 +143,8 @@
     <!--<GuidSymbol name="GuidVisualStudioGitChangesContextMenu" value="{57735D06-C920-4415-A2E0-7D6E6FBDFA99}">
       <IDSymbol name="IDVisualStudioGitChangesContextMenu" value="61457" />
     </GuidSymbol>-->
+    <!--<GuidSymbol name="GuidVisualStudioFolderViewContextMenu" value="{CFB400F1-5C60-4F3C-856E-180D28DEF0B7}">
+      <IDSymbol name="IDVisualStudioFolderViewContextMenu" value="2" />
+    </GuidSymbol>-->
   </Symbols>
 </CommandTable>
