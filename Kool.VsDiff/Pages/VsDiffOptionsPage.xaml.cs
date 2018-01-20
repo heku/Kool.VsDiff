@@ -42,8 +42,12 @@ namespace Kool.VsDiff.Pages
 
             try
             {
-                DiffToolFactory.CreateDiffTool().Diff(file1, file2);
-                // Cannot clear temp files here, the extenal tool may be initializing.
+                new CustomDiffTool(_options.CustomDiffToolPath, _options.CustomDiffToolArgs)
+                    .Diff(file1, file2, (f1, f2) =>
+                    {
+                        TempFileHelper.RemoveTempFile(f1);
+                        TempFileHelper.RemoveTempFile(f2);
+                    });
             }
             catch (Exception ex)
             {

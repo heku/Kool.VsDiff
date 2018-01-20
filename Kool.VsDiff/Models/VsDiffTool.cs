@@ -14,7 +14,7 @@ namespace Kool.VsDiff.Models
             _diffService = (IVsDifferenceService)sp.GetService(typeof(SVsDifferenceService));
         }
 
-        public void Diff(string file1, string file2)
+        public void Diff(string file1, string file2, Action<string, string> callback)
         {
             var name1 = Path.GetFileName(file1);
             var name2 = Path.GetFileName(file2);
@@ -22,6 +22,8 @@ namespace Kool.VsDiff.Models
             var tooltip = file1 + Environment.NewLine + file2;
 
             _diffService.OpenComparisonWindow2(file1, file2, caption, tooltip, file1, file2, null, null, 0).Show();
+
+            callback?.Invoke(file1, file2);
         }
     }
 }

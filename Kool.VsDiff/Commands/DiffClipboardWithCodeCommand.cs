@@ -43,13 +43,12 @@ namespace Kool.VsDiff.Commands
             var selectionFile = TempFileHelper.CreateTempFile("Selection" + extension, _selectionText);
             var clipboardFile = TempFileHelper.CreateTempFile("Clipboard" + extension, _clipboardText);
 
-            DiffToolFactory.CreateDiffTool().Diff(clipboardFile, selectionFile);
-
-            if (!Package.Options.UseCustomDiffTool)
-            {
-                TempFileHelper.RemoveTempFile(selectionFile);
-                TempFileHelper.RemoveTempFile(clipboardFile);
-            }
+            DiffToolFactory.CreateDiffTool().Diff(clipboardFile, selectionFile,
+                (file1, file2) =>
+                 {
+                     TempFileHelper.RemoveTempFile(file1);
+                     TempFileHelper.RemoveTempFile(file2);
+                 });
         }
     }
 }

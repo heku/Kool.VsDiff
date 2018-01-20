@@ -45,6 +45,8 @@ namespace Kool.VsDiff.Pages
             DiffClipboardWithCodeCommand.Instance.Turn(DiffClipboardWithCodeEnabled);
             DiffClipboardWithFileCommand.Instance.Turn(DiffClipboardWithFileEnabled);
 
+            DiffToolFactory.ClearCache();
+
             base.OnApply(e);
         }
 

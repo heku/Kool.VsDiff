@@ -27,7 +27,7 @@ namespace Kool.VsDiff.Commands
 
         protected override void OnExecute()
         {
-            DiffToolFactory.CreateDiffTool().Diff(_file1, _file2);
+            DiffToolFactory.CreateDiffTool().Diff(_file1, _file2, null);
         }
     }
 }

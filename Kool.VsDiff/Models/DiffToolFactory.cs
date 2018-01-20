@@ -3,24 +3,22 @@
     internal static class DiffToolFactory
     {
         private static VsDiffPackage Package;
-        private static IDiffTool DefaultDiffTool;
+        private static IDiffTool CachedDiffTool;
 
-        public static void Initialize(VsDiffPackage package)
-        {
-            Package = package;
-        }
+        public static void Initialize(VsDiffPackage package) => Package = package;
+
+        public static void ClearCache() => CachedDiffTool = null;
 
         public static IDiffTool CreateDiffTool()
         {
-            var options = Package.Options;
-            if (options.UseCustomDiffTool)
+            if (CachedDiffTool == null)
             {
-                return new CustomDiffTool(options.CustomDiffToolPath, options.CustomDiffToolArgs);
+                CachedDiffTool = Package.Options.UseCustomDiffTool
+                    ? new CustomDiffTool(Package.Options.CustomDiffToolPath, Package.Options.CustomDiffToolArgs)
+                    : (IDiffTool)new VsDiffTool(Package);
             }
-            else
-            {
-                return DefaultDiffTool ?? (DefaultDiffTool = new VsDiffTool(Package));
-            }
+
+            return CachedDiffTool;
         }
     }
 }

@@ -14,9 +14,16 @@ namespace Kool.VsDiff.Models
             _args = args ?? throw new ArgumentNullException(nameof(args));
         }
 
-        public void Diff(string file1, string file2)
+        public void Diff(string file1, string file2, Action<string, string> callback)
         {
-            Process.Start(_command, _args.Replace("$FILE1", file1).Replace("$FILE2", file2));
+            var args = _args.Replace("$FILE1", file1).Replace("$FILE2", file2);
+            var process = new Process
+            {
+                EnableRaisingEvents = true,
+                StartInfo = new ProcessStartInfo(_command, args)
+            };
+            process.Exited += delegate { callback?.Invoke(file1, file2); };
+            process.Start();
         }
     }
 }
