@@ -34,4 +34,5 @@ using System.Runtime.InteropServices;
 
 // https://docs.microsoft.com/en-us/visualstudio/extensibility/localizing-menu-commands
 // https://www.codeproject.com/Tips/648517/Error-Resolved-IOException-Cannot-locate-resource
-[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
+// https://msdn.microsoft.com/en-us/library/dd997383(v=vs.100).aspx#New%20Specific%20Cultures
+[assembly: NeutralResourcesLanguage("en", UltimateResourceFallbackLocation.Satellite)]

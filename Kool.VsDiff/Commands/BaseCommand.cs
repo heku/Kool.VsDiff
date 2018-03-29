@@ -46,7 +46,7 @@ namespace Kool.VsDiff.Commands
             }
             catch (Exception ex)
             {
-                MessageBox.Error(Resources.ErrorMessageTitle, ex.Message);
+                MessageBox.Error(VSPackage.ErrorMessageTitle, ex.Message);
                 OutputWindow.Error($"Failed to execute command {commandName}.", ex);
             }
         }

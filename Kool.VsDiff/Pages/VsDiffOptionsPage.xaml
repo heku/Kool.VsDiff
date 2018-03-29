@@ -4,17 +4,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:md="clr-namespace:Kool.VsDiff.Models"
+             xmlns:kv="clr-namespace:Kool.VsDiff"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="400"
              FontFamily="{DynamicResource VsFont.EnvironmentFontFamily}"
              FontSize="{DynamicResource VsFont.EnvironmentFontSize}">
     <StackPanel>
         <GroupBox Padding="0,5">
             <GroupBox.Header>
-                <CheckBox IsChecked="{Binding UseCustomDiffTool}" Content="{x:Static md:Resources.OptionsPage_UseCustomDiffTool}" />
+                <CheckBox IsChecked="{Binding UseCustomDiffTool}" Content="{x:Static kv:VSPackage.OptionsPage_UseCustomDiffTool}" />
             </GroupBox.Header>
             <StackPanel IsEnabled="{Binding UseCustomDiffTool, Mode=OneWay}">
-                <TextBlock Text="{x:Static md:Resources.OptionsPage_DiffToolPath}" />
+                <TextBlock Text="{x:Static kv:VSPackage.OptionsPage_DiffToolPath}" />
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -23,19 +23,19 @@
                     <TextBox Name="CustomDiffToolPath" VerticalContentAlignment="Center" Text="{Binding CustomDiffToolPath, UpdateSourceTrigger=PropertyChanged}" />
                     <Button Grid.Column="1" Width="40" Height="25" Content="..." Click="OnBrowseButtonClicked" />
                 </Grid>
-                <TextBlock Margin="0,5,0,0" Text="{x:Static md:Resources.OptionsPage_Arguments}" />
+                <TextBlock Margin="0,5,0,0" Text="{x:Static kv:VSPackage.OptionsPage_Arguments}" />
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="50" />
                     </Grid.ColumnDefinitions>
                     <TextBox VerticalContentAlignment="Center" Text="{Binding CustomDiffToolArgs, UpdateSourceTrigger=PropertyChanged}" />
-                    <Button Grid.Column="1" Width="40" Height="25" Content="{x:Static md:Resources.OptionsPage_TestButtonContent}" Click="OnTestButtonClicked" />
+                    <Button Grid.Column="1" Width="40" Height="25" Content="{x:Static kv:VSPackage.OptionsPage_TestButtonContent}" Click="OnTestButtonClicked" />
                 </Grid>
             </StackPanel>
         </GroupBox>
-        <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithCodeEnabled}" Content="{x:Static md:Resources.OptionsPage_EnableDiffClipboardWithCode}" />
-        <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithFileEnabled}" Content="{x:Static md:Resources.OptionsPage_EnableDiffClipboardWithFile}" />
-        <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiagnosticsMode}" Content="{x:Static md:Resources.OptionsPage_EnableDiagnosticsMode}" />
+        <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithCodeEnabled}" Content="{x:Static kv:VSPackage.OptionsPage_EnableDiffClipboardWithCode}" />
+        <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithFileEnabled}" Content="{x:Static kv:VSPackage.OptionsPage_EnableDiffClipboardWithFile}" />
+        <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiagnosticsMode}" Content="{x:Static kv:VSPackage.OptionsPage_EnableDiagnosticsMode}" />
     </StackPanel>
 </UserControl>

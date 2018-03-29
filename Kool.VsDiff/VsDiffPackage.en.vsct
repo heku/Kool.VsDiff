@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema" language="en">
+
+  <Include href="VsDiffPackage.vsct" />
+
+  <Commands package="guidPackage">
+    <Buttons>
+      <!--Compare two selected files-->
+      <Button guid="guidCmdSet" id="DIFF_SELECTED_FILES_CMD_ID" type="Button">
+        <Icon guid="ImageCatalogGuid" id="CompareFiles" />
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>IconAndText</CommandFlag>
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>Compare Selected Files</ButtonText>
+        </Strings>
+      </Button>
+      <!--Compare selected file with Clipboard-->
+      <Button guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_FILE_CMD_ID" priority="0x0100" type="Button">
+        <Parent guid="guidCmdSet" id="SOLUTION_EXPLORER_ITEM_MENU_GROUP" />
+        <Icon guid="ImageCatalogGuid" id="CompareFiles" />
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>IconAndText</CommandFlag>
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>Compare with Clipboard</ButtonText>
+        </Strings>
+      </Button>
+      <!--Compare selected code with Clipboard-->
+      <Button guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_CMD_ID" priority="0x0100" type="Button">
+        <Parent guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" />
+        <Icon guid="ImageCatalogGuid" id="CompareFiles" />
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>IconAndText</CommandFlag>
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>Compare with Clipboard</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+</CommandTable>

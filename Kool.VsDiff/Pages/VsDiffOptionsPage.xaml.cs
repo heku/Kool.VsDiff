@@ -51,7 +51,7 @@ namespace Kool.VsDiff.Pages
             }
             catch (Exception ex)
             {
-                VS.MessageBox.Error(Models.Resources.ErrorMessageTitle, ex.Message);
+                VS.MessageBox.Error(VSPackage.ErrorMessageTitle, ex.Message);
             }
         }
     }

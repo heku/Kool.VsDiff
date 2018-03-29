@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema" language="en-us">
-
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <Extern href="stdidcmd.h" />
   <Extern href="vsshlids.h" />
 
@@ -13,44 +12,6 @@
       <Group guid="guidCmdSet" id="SOLUTION_EXPLORER_ITEM_MENU_GROUP" />
       <Group guid="guidCmdSet" id="SOLUTION_EXPLORER_XPROJ_ITEM_MENU_GROUP" />
     </Groups>
-
-    <Buttons>
-      <!--Compare two selected files-->
-      <Button guid="guidCmdSet" id="DIFF_SELECTED_FILES_CMD_ID" type="Button">
-        <Icon guid="ImageCatalogGuid" id="CompareFiles" />
-        <CommandFlag>DefaultInvisible</CommandFlag>
-        <CommandFlag>DynamicVisibility</CommandFlag>
-        <CommandFlag>IconAndText</CommandFlag>
-        <CommandFlag>IconIsMoniker</CommandFlag>
-        <Strings>
-          <ButtonText>Compare Selected Files</ButtonText>
-        </Strings>
-      </Button>
-      <!--Compare selected file with Clipboard-->
-      <Button guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_FILE_CMD_ID" priority="0x0100" type="Button">
-        <Parent guid="guidCmdSet" id="SOLUTION_EXPLORER_ITEM_MENU_GROUP" />
-        <Icon guid="ImageCatalogGuid" id="CompareFiles" />
-        <CommandFlag>DefaultInvisible</CommandFlag>
-        <CommandFlag>DynamicVisibility</CommandFlag>
-        <CommandFlag>IconAndText</CommandFlag>
-        <CommandFlag>IconIsMoniker</CommandFlag>
-        <Strings>
-          <ButtonText>Compare with Clipboard</ButtonText>
-        </Strings>
-      </Button>
-      <!--Compare selected code with Clipboard-->
-      <Button guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_CODE_CMD_ID" priority="0x0100" type="Button">
-        <Parent guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" />
-        <Icon guid="ImageCatalogGuid" id="CompareFiles" />
-        <CommandFlag>DefaultInvisible</CommandFlag>
-        <CommandFlag>DynamicVisibility</CommandFlag>
-        <CommandFlag>IconAndText</CommandFlag>
-        <CommandFlag>IconIsMoniker</CommandFlag>
-        <Strings>
-          <ButtonText>Compare with Clipboard</ButtonText>
-        </Strings>
-      </Button>
-    </Buttons>
   </Commands>
 
   <CommandPlacements>
@@ -142,9 +103,6 @@
     </GuidSymbol>
     <!--<GuidSymbol name="GuidVisualStudioGitChangesContextMenu" value="{57735D06-C920-4415-A2E0-7D6E6FBDFA99}">
       <IDSymbol name="IDVisualStudioGitChangesContextMenu" value="61457" />
-    </GuidSymbol>-->
-    <!--<GuidSymbol name="GuidVisualStudioFolderViewContextMenu" value="{CFB400F1-5C60-4F3C-856E-180D28DEF0B7}">
-      <IDSymbol name="IDVisualStudioFolderViewContextMenu" value="2" />
     </GuidSymbol>-->
   </Symbols>
 </CommandTable>
