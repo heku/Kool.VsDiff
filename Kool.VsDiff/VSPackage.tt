@@ -7,11 +7,11 @@
 <#@ output extension=".Designer.cs" #>
 
 <#
-const string Namespace = "Kool.VsDiff";
 const string BenchmarkLanguage = "en";
 
 var resourceNameWithoutCulture = Path.GetFileNameWithoutExtension(Host.TemplateFile);
-var resourceFullNameWithoutCulture = Namespace + "." + resourceNameWithoutCulture;
+var resourceNamespace = Host.ResolveParameterValue("directiveId", "namespaceDirectiveProcessor", "namespaceHint") ?? string.Empty;
+var resourceFullNameWithoutCulture = resourceNamespace + "." + resourceNameWithoutCulture;
 #>
 
 // ------------------------------------------------------------------------------
@@ -22,7 +22,7 @@ var resourceFullNameWithoutCulture = Namespace + "." + resourceNameWithoutCultur
 
 using System.Resources;
 
-namespace <#= Namespace#>
+namespace <#= resourceNamespace#>
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings.

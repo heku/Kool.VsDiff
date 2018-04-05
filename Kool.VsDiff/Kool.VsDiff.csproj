@@ -84,6 +84,7 @@
     <None Include="VSPackage.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>VSPackage.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Kool.VsDiff</CustomToolNamespace>
     </None>
   </ItemGroup>
   <ItemGroup>
