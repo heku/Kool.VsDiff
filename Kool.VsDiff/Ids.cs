@@ -10,5 +10,6 @@
         public const int DIFF_SELECTED_FILES_CMD_ID = 0x0100;
         public const int DIFF_CLIPBOARD_WITH_CODE_CMD_ID = 0x0110;
         public const int DIFF_CLIPBOARD_WITH_FILE_CMD_ID = 0x0120;
+        public const int DIFF_CLIPBOARD_WITH_DOCUMENT_CMD_ID = 0x0130;
     }
 }

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\DiffClipboardWithCodeCommand.cs" />
+    <Compile Include="Commands\DiffClipboardWithDocumentCommand.cs" />
     <Compile Include="Commands\DiffSelectedFilesCommand.cs" />
     <Compile Include="Commands\DiffClipboardWithFileCommand.cs" />
     <Compile Include="Models\ClipboardHelper.cs" />
@@ -80,7 +81,9 @@
     <None Include="Key.snk" />
     <None Include="packages.config" />
     <None Include="source.extension.vsixmanifest" />
-    <None Include="VsDiffPackage.vsct" />
+    <None Include="VsDiffPackage.vsct">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="VSPackage.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>VSPackage.Designer.cs</LastGenOutput>
@@ -213,9 +216,11 @@
     </Content>
     <VSCTCompile Include="VsDiffPackage.en.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
+      <SubType>Designer</SubType>
     </VSCTCompile>
     <VSCTCompile Include="VsDiffPackage.zh-Hans.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
+      <SubType>Designer</SubType>
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>

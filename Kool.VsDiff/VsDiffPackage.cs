@@ -39,6 +39,7 @@ namespace Kool.VsDiff
             DiffSelectedFilesCommand.Initialize(this);
             DiffClipboardWithCodeCommand.Initialize(this);
             DiffClipboardWithFileCommand.Initialize(this);
+            DiffClipboardWithDocumentCommand.Initialize(this);
 
             VS.OutputWindow.Info("Package is sited and initialized.");
         }

@@ -25,6 +25,8 @@ namespace Kool.VsDiff.Pages
 
         public bool DiffClipboardWithFileEnabled { get; set; }
 
+        public bool DiffClipboardWithDocumentEnabled { get; set; }
+
         public bool UseCustomDiffTool { get; set; }
 
         public string CustomDiffToolPath { get; set; }
@@ -44,6 +46,7 @@ namespace Kool.VsDiff.Pages
         {
             DiffClipboardWithCodeCommand.Instance.Turn(DiffClipboardWithCodeEnabled);
             DiffClipboardWithFileCommand.Instance.Turn(DiffClipboardWithFileEnabled);
+            DiffClipboardWithDocumentCommand.Instance.Turn(DiffClipboardWithDocumentEnabled);
 
             DiffToolFactory.ClearCache();
 
@@ -61,6 +64,7 @@ namespace Kool.VsDiff.Pages
         {
             DiffClipboardWithCodeEnabled = true;
             DiffClipboardWithFileEnabled = true;
+            DiffClipboardWithDocumentEnabled = true;
             UseCustomDiffTool = false;
 #if DEBUG
             DiagnosticsMode = true;

@@ -36,6 +36,7 @@
         </GroupBox>
         <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithCodeEnabled}" Content="{x:Static kv:VSPackage.OptionsPage_EnableDiffClipboardWithCode}" />
         <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithFileEnabled}" Content="{x:Static kv:VSPackage.OptionsPage_EnableDiffClipboardWithFile}" />
+        <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithDocumentEnabled}" Content="{x:Static kv:VSPackage.OptionsPage_EnableDiffClipboardWithDocument}" />
         <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiagnosticsMode}" Content="{x:Static kv:VSPackage.OptionsPage_EnableDiagnosticsMode}" />
     </StackPanel>
 </UserControl>

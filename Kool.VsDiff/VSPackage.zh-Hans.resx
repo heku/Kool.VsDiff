@@ -142,6 +142,9 @@
   <data name="OptionsPage_EnableDiffClipboardWithCode" xml:space="preserve">
     <value>启用选中代码与剪贴板内容的比较功能</value>
   </data>
+  <data name="OptionsPage_EnableDiffClipboardWithDocument" xml:space="preserve">
+    <value>启用当前文档与剪贴板内容的比较功能</value>
+  </data>
   <data name="OptionsPage_EnableDiffClipboardWithFile" xml:space="preserve">
     <value>启用选中文件与剪贴板内容的比较功能</value>
   </data>

@@ -40,6 +40,18 @@
           <ButtonText>和剪贴板内容比较</ButtonText>
         </Strings>
       </Button>
+      <!--Compare current document with Clipboard-->
+      <Button guid="guidCmdSet" id="DIFF_CLIPBOARD_WITH_DOCUMENT_CMD_ID" priority="0x0100" type="Button">
+        <Parent guid="guidCmdSet" id="DOCUMENT_CONTEXT_MENU_GROUP" />
+        <Icon guid="ImageCatalogGuid" id="CompareFiles" />
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>IconAndText</CommandFlag>
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>和剪贴板内容比较</ButtonText>
+        </Strings>
+      </Button>
     </Buttons>
   </Commands>
 </CommandTable>

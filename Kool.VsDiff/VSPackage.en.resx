@@ -142,6 +142,9 @@
   <data name="OptionsPage_EnableDiffClipboardWithCode" xml:space="preserve">
     <value>Enable compare Clipboard content with selected code.</value>
   </data>
+  <data name="OptionsPage_EnableDiffClipboardWithDocument" xml:space="preserve">
+    <value>Enable compare Clipboard content with active document.</value>
+  </data>
   <data name="OptionsPage_EnableDiffClipboardWithFile" xml:space="preserve">
     <value>Enable compare Clipboard content with selected file.</value>
   </data>

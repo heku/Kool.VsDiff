@@ -1,5 +1,4 @@
-﻿using Kool.VsDiff.Models;
-using Microsoft.VisualStudio.Shell;
+﻿using Microsoft.VisualStudio.Shell;
 using System;
 using System.ComponentModel.Design;
 using static Kool.VsDiff.Models.VS;

@@ -11,6 +11,9 @@
       <Group guid="guidCmdSet" id="CODE_EDITOR_MENU_GROUP" />
       <Group guid="guidCmdSet" id="SOLUTION_EXPLORER_ITEM_MENU_GROUP" />
       <Group guid="guidCmdSet" id="SOLUTION_EXPLORER_XPROJ_ITEM_MENU_GROUP" />
+      <Group guid="guidCmdSet" id="DOCUMENT_CONTEXT_MENU_GROUP" priority="0xFFFF">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_EZDOCWINTAB" />
+      </Group>
     </Groups>
   </Commands>
 
@@ -70,10 +73,12 @@
       <IDSymbol name="CODE_EDITOR_MENU_GROUP" value="0x1020" />
       <IDSymbol name="SOLUTION_EXPLORER_ITEM_MENU_GROUP" value="0x1021" />
       <IDSymbol name="SOLUTION_EXPLORER_XPROJ_ITEM_MENU_GROUP" value="0x1022" />
+      <IDSymbol name="DOCUMENT_CONTEXT_MENU_GROUP" value="0x1023" />
 
       <IDSymbol name="DIFF_SELECTED_FILES_CMD_ID" value="0x0100" />
       <IDSymbol name="DIFF_CLIPBOARD_WITH_CODE_CMD_ID" value="0x0110" />
       <IDSymbol name="DIFF_CLIPBOARD_WITH_FILE_CMD_ID" value="0x0120" />
+      <IDSymbol name="DIFF_CLIPBOARD_WITH_DOCUMENT_CMD_ID" value="0x0130" />
     </GuidSymbol>
 
     <!--https://blog.agchapman.com/updating-registry-settings-for-visual-studio-2017/-->
