@@ -6,16 +6,18 @@ using Microsoft.VisualStudio.Shell;
 using System;
 using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
+using System.Threading;
+using Task = System.Threading.Tasks.Task;
 
 namespace Kool.VsDiff
 {
     [Guid(Ids.PACKAGE)]
-    [PackageRegistration(UseManagedResourcesOnly = true)]
+    [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [InstalledProductRegistration("#110", "#112", Vsix.VERSION, IconResourceID = 400)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideOptionPage(typeof(VsDiffOptions), Vsix.PRODUCT, Vsix.PACKAGE, 0, 0, true)]
-    [ProvideAutoLoad(Microsoft.VisualStudio.VSConstants.UICONTEXT.SolutionExistsAndFullyLoaded_string)]
-    public sealed class VsDiffPackage : Package
+    [ProvideAutoLoad(Microsoft.VisualStudio.VSConstants.UICONTEXT.SolutionExistsAndFullyLoaded_string, PackageAutoLoadFlags.BackgroundLoad)]
+    public sealed class VsDiffPackage : AsyncPackage
     {
         internal DTE2 IDE { get; private set; }
 
@@ -23,12 +25,12 @@ namespace Kool.VsDiff
 
         internal OleMenuCommandService CommandService { get; private set; }
 
-        protected override void Initialize()
+        protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
-            base.Initialize();
+            await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
 
-            IDE = GetService(typeof(EnvDTE.DTE)) as DTE2;
-            CommandService = GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
+            IDE = await GetServiceAsync(typeof(EnvDTE.DTE)) as DTE2;
+            CommandService = await GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
             Options = GetDialogPage(typeof(VsDiffOptions)) as VsDiffOptions;
 
             VS.Initialize(this);
