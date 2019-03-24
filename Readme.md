@@ -6,7 +6,7 @@ master|dev
 
 VS Diff is an open sourced Visual Studio extension tool, which makes it more easily to compare files and code.
 
-You can download it via Visual Studio 2015/2017 'Extensions and Updates' or from the [marketplace](https://marketplace.visualstudio.com/items?itemName=iheku.VsDiff).
+You can download it via Visual Studio 2015/17/19 'Extensions and Updates' or from the [marketplace](https://marketplace.visualstudio.com/items?itemName=iheku.VsDiff).
 
 ## Features
 - Compare two selected files in Solution Explorer.
@@ -20,6 +20,10 @@ You can download it via Visual Studio 2015/2017 'Extensions and Updates' or from
 - Compare the selection code with Clipboard content.
 
     ![CompareSelectionCodeWithClipboard.png](Images/CompareSelectionCodeWithClipboard.png)
+
+- Compare the active document with Clipboard content.
+
+    ![CompareActiveDocumentWithClipboard.png](Images/CompareActiveDocumentWithClipboard.png)
 
 ## Configurable
 ![Configuration.png](Images/Configuration.png)
