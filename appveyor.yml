@@ -25,8 +25,6 @@ before_build:
 build_script:
   - msbuild /p:configuration=Release /p:DeployExtension=false /p:ZipPackageCompressionLevel=normal /v:m
 
-after_build:
-  - ps: if ($env:APPVEYOR_REPO_BRANCH -eq 'master' -or $env:APPVEYOR_REPO_BRANCH -eq 'dev') { Vsix-PushArtifacts }
-
-test: off
-deploy: off
+after_test:
+  - ps: if ($env:APPVEYOR_REPO_BRANCH -eq 'dev') { Vsix-PushArtifacts }
+  - ps: if ($env:APPVEYOR_REPO_BRANCH -eq 'master') { Vsix-PushArtifacts | Vsix-PublishToGallery }
