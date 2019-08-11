@@ -1,8 +1,8 @@
 ## About
 
-master|rel
-------|---
-[![Build status](https://ci.appveyor.com/api/projects/status/q0ipkukkvnsj3dss/branch/master?svg=true)](https://ci.appveyor.com/project/heku/kool-vsdiff/branch/master)|[![Build status](https://ci.appveyor.com/api/projects/status/q0ipkukkvnsj3dss/branch/rel?svg=true)](https://ci.appveyor.com/project/heku/kool-vsdiff/branch/rel)
+ master (development)                                         | rel (release)                                                
+ ------------------------------------------------------------ | ------------------------------------------------------------ 
+ [![Build status](https://ci.appveyor.com/api/projects/status/q0ipkukkvnsj3dss/branch/master?svg=true)](https://ci.appveyor.com/project/heku/kool-vsdiff/branch/master) | [![Build status](https://ci.appveyor.com/api/projects/status/q0ipkukkvnsj3dss/branch/rel?svg=true)](https://ci.appveyor.com/project/heku/kool-vsdiff/branch/rel) 
 
 Another open source Visual Studio extension that makes file/code comparison more easily.
 
