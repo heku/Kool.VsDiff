@@ -3,7 +3,7 @@ version: 1.6.{build}
 branches:
   only:
   - master
-  - dev
+  - rel
 
 image: Visual Studio 2017
 
@@ -26,5 +26,5 @@ build_script:
   - msbuild /p:configuration=Release /p:DeployExtension=false /p:ZipPackageCompressionLevel=normal /v:m
 
 after_test:
-  - ps: if ($env:APPVEYOR_REPO_BRANCH -eq 'dev') { Vsix-PushArtifacts }
-  - ps: if ($env:APPVEYOR_REPO_BRANCH -eq 'master') { Vsix-PushArtifacts | Vsix-PublishToGallery }
+  - ps: if ($env:APPVEYOR_REPO_BRANCH -eq 'master') { Vsix-PushArtifacts }
+  - ps: if ($env:APPVEYOR_REPO_BRANCH -eq 'rel') { Vsix-PushArtifacts | Vsix-PublishToGallery }
