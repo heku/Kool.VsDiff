@@ -53,6 +53,7 @@
     <Compile Include="Commands\DiffClipboardWithDocumentCommand.cs" />
     <Compile Include="Commands\DiffSelectedFilesCommand.cs" />
     <Compile Include="Commands\DiffClipboardWithFileCommand.cs" />
+    <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Models\ClipboardHelper.cs" />
     <Compile Include="Models\CustomDiffTool.cs" />
     <Compile Include="Models\DiffToolFactory.cs" />
@@ -134,7 +135,7 @@
   <ItemGroup>
     <PackageReference Include="Madskristensen.VisualStudio.SDK" Version="14.0.81-pre" PrivateAssets="all" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.VSSDK.BuildTools">
-      <Version>16.2.3074</Version>
+      <Version>16.4.17</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

@@ -6,7 +6,7 @@
 
 Another open source Visual Studio extension that makes file/code comparison more easily.
 
-You can download it via Visual Studio 2015/2017/2019 'Extensions and Updates' or [Marketplace](https://marketplace.visualstudio.com/items?itemName=iheku.VsDiff).
+You can download it via Visual Studio 2015/2017/2019 'Extensions and Updates' or [Marketplace](https://marketplace.visualstudio.com/items?itemName=heku.VsDiff).
 
 ## Features
 - Compare two selected files in Solution Explorer.

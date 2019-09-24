@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.Shell.Interop;
+﻿using Microsoft;
+using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.IO;
 
@@ -12,6 +13,7 @@ namespace Kool.VsDiff.Models
         {
             var sp = package as IServiceProvider;
             _diffService = (IVsDifferenceService)sp.GetService(typeof(SVsDifferenceService));
+            Assumes.Present(_diffService);
         }
 
         public void Diff(string file1, string file2, Action<string, string> callback)

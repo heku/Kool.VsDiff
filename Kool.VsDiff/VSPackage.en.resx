@@ -121,7 +121,7 @@
     <value>VS Diff</value>
   </data>
   <data name="112" xml:space="preserve">
-    <value>VS Diff is an open sourced Visual Studio extension tool, which makes it more easily to compare files and code.</value>
+    <value>Another open source Visual Studio extension that makes file/code comparison more easily.</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="400" type="System.Resources.ResXFileRef, System.Windows.Forms">

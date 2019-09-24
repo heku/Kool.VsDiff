@@ -1,4 +1,5 @@
 ﻿using EnvDTE;
+using Microsoft;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
@@ -28,6 +29,7 @@ namespace Kool.VsDiff.Models
             {
                 var sp = Package as IServiceProvider;
                 VsOutputWindowPane = (IVsOutputWindowPane)sp.GetService(typeof(SVsGeneralOutputWindowPane));
+                Assumes.Present(VsOutputWindowPane);
             }
 
             [Conditional("DEBUG")]
@@ -75,7 +77,10 @@ namespace Kool.VsDiff.Models
                 try
                 {
                     var selectedItems = Package.IDE.SelectedItems;
-                    if (selectedItems.Count != 1) return false;
+                    if (selectedItems.Count != 1)
+                    {
+                        return false;
+                    }
 
                     var files = GetFiles(selectedItems);
                     if (files.Count == 1)
@@ -98,7 +103,10 @@ namespace Kool.VsDiff.Models
                 try
                 {
                     var selectedItems = Package.IDE.SelectedItems;
-                    if (selectedItems.Count != 2) return false;
+                    if (selectedItems.Count != 2)
+                    {
+                        return false;
+                    }
 
                     var files = GetFiles(selectedItems);
                     if (files.Count == 2)
