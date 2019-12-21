@@ -1,5 +1,3 @@
-
------------
 Another open source Visual Studio extension that makes file/code comparison more easily.
 
 ## Features
