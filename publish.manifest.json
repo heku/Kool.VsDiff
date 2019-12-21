@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json.schemastore.org/vsix-publish",
+  "categories": [
+    "Coding",
+    "Tools"
+  ],
+  "identity": {
+    "internalName": "VsDiff",
+    "displayName": "VS Diff",
+    "tags": [
+      "compare",
+      "diff"
+    ]
+  },
+  "overview": "publish.overview.md",
+  "assetFiles": [
+    {
+      "pathOnDisk": "Images/CompareActiveDocumentWithClipboard.png",
+      "targetPath": "Images/CompareActiveDocumentWithClipboard.png"
+    },
+    {
+      "pathOnDisk": "Images/CompareSelectedFiles.png",
+      "targetPath": "Images/CompareSelectedFiles.png"
+    },
+    {
+      "pathOnDisk": "Images/CompareSelectedFileWithClipboard.png",
+      "targetPath": "Images/CompareSelectedFileWithClipboard.png"
+    },
+    {
+      "pathOnDisk": "Images/CompareSelectionCodeWithClipboard.png",
+      "targetPath": "Images/CompareSelectionCodeWithClipboard.png"
+    },
+    {
+      "pathOnDisk": "Images/Configuration.png",
+      "targetPath": "Images/Configuration.png"
+    }
+  ],
+  "priceCategory": "free",
+  "publisher": "Heku",
+  "private": false,
+  "qna": true,
+  "repo": "https://github.com/heku/kool.vsdiff"
+}

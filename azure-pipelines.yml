@@ -1,0 +1,58 @@
+trigger:
+- 'master'
+- 'rel'
+
+variables:
+  patch: $[counter('versioncounter', 0)]
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+name: 0.0.$(patch)
+
+pool:
+  vmImage: 'windows-2019'
+
+steps:
+- task: NuGetToolInstaller@1
+  displayName: Ensure nuget tool installed
+
+- task: NuGetCommand@2
+  displayName: Restore nuget packages
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: PowerShell@2
+  displayName: Update versions
+  inputs:
+    targetType: 'inline'
+    script: |
+      Import-Module -Force -Verbose .\vsix.psm1
+      UpdateVersion '$(Build.BuildNumber)'
+
+- task: VSBuild@1
+  displayName: Build solution
+  inputs:
+    solution: '$(solution)'
+    maximumCpuCount: true
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+    msbuildArgs: '/v:m'
+
+- task: CopyFiles@2
+  displayName: Select files for publish
+  inputs:
+    Contents: |
+      vsix.psm1
+      publish.*
+      Images/*
+      */bin/Release/*.vsix
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish files for release
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
