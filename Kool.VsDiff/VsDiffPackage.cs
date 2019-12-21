@@ -5,6 +5,7 @@ using Kool.VsDiff.Pages;
 using Microsoft.VisualStudio.Shell;
 using System;
 using System.ComponentModel.Design;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using Task = System.Threading.Tasks.Task;
@@ -41,7 +42,7 @@ namespace Kool.VsDiff
             DiffClipboardWithFileCommand.Initialize(this);
             DiffClipboardWithDocumentCommand.Initialize(this);
 
-            VS.OutputWindow.Info("Package is sited and initialized.");
+            Debug.WriteLine("Package is sited and initialized.");
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Kool.VsDiff.Models;
 using System;
+using System.Diagnostics;
 using System.IO;
-using static Kool.VsDiff.Models.VS;
 
 namespace Kool.VsDiff.Commands
 {
@@ -47,7 +47,7 @@ namespace Kool.VsDiff.Commands
             }
             catch (Exception ex)
             {
-                OutputWindow.Error("Failed to get active document file.", ex);
+                Debug.WriteLine($"Failed to get active document file: {ex.Message}");
                 return false;
             }
         }

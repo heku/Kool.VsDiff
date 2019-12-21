@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.Shell;
 using System;
 using System.ComponentModel.Design;
+using System.Diagnostics;
 using static Kool.VsDiff.Models.VS;
 
 namespace Kool.VsDiff.Commands
@@ -18,26 +19,23 @@ namespace Kool.VsDiff.Commands
         private static void OnBaseBeforeQueryStatus(object sender, EventArgs e)
         {
             var command = sender as BaseCommand;
-            var commandName = command.GetType().Name;
 
-            OutputWindow.Debug($"Command {commandName} OnBeforeQueryStatus.");
-
+            Debug.WriteLine($"Command {command.GetType().Name} OnBeforeQueryStatus.");
             try
             {
                 command.OnBeforeQueryStatus();
             }
             catch (Exception ex)
             {
-                OutputWindow.Error($"Failed to enable command {commandName}.", ex);
+                MessageBox.Error(VSPackage.ErrorMessageTitle, ex.Message);
             }
         }
 
         private static void OnBaseCommandEventHandler(object sender, EventArgs e)
         {
             var command = sender as BaseCommand;
-            var commandName = command.GetType().Name;
 
-            OutputWindow.Info($"Execute command {commandName}.");
+            Debug.WriteLine($"Execute command {command.GetType().Name}.");
 
             try
             {
@@ -46,7 +44,6 @@ namespace Kool.VsDiff.Commands
             catch (Exception ex)
             {
                 MessageBox.Error(VSPackage.ErrorMessageTitle, ex.Message);
-                OutputWindow.Error($"Failed to execute command {commandName}.", ex);
             }
         }
 

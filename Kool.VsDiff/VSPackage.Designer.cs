@@ -22,7 +22,6 @@ namespace Kool.VsDiff
         public static string ErrorMessageTitle { get; } = Resx.GetString("ErrorMessageTitle");
         public static string OptionsPage_Arguments { get; } = Resx.GetString("OptionsPage_Arguments");
         public static string OptionsPage_DiffToolPath { get; } = Resx.GetString("OptionsPage_DiffToolPath");
-        public static string OptionsPage_EnableDiagnosticsMode { get; } = Resx.GetString("OptionsPage_EnableDiagnosticsMode");
         public static string OptionsPage_EnableDiffClipboardWithCode { get; } = Resx.GetString("OptionsPage_EnableDiffClipboardWithCode");
         public static string OptionsPage_EnableDiffClipboardWithDocument { get; } = Resx.GetString("OptionsPage_EnableDiffClipboardWithDocument");
         public static string OptionsPage_EnableDiffClipboardWithFile { get; } = Resx.GetString("OptionsPage_EnableDiffClipboardWithFile");

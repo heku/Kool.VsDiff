@@ -3,6 +3,7 @@ using Kool.VsDiff.Models;
 using Microsoft.VisualStudio.Shell;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows;
 
@@ -18,8 +19,6 @@ namespace Kool.VsDiff.Pages
             ResetOptions();
             _page = new DiffToolOptionsPage(this);
         }
-
-        public bool DiagnosticsMode { get; set; }
 
         public bool DiffClipboardWithCodeEnabled { get; set; }
 
@@ -57,7 +56,7 @@ namespace Kool.VsDiff.Pages
         {
             ResetOptions();
             base.ResetSettings();
-            VS.OutputWindow.Info("The options have been reset.");
+            Debug.WriteLine("The options have been reset.");
         }
 
         private void ResetOptions()
@@ -66,13 +65,7 @@ namespace Kool.VsDiff.Pages
             DiffClipboardWithFileEnabled = true;
             DiffClipboardWithDocumentEnabled = true;
             UseCustomDiffTool = false;
-#if DEBUG
-            DiagnosticsMode = true;
-            CustomDiffToolPath = @"V:\D\Shared\WinMerge\WinMergeU.exe";
-#else
-            DiagnosticsMode = false;
             CustomDiffToolPath = @"%ProgramFiles(x86)%\WinMerge\WinMergeU.exe";
-#endif
             CustomDiffToolArgs = "-e -u \"$FILE1\" \"$FILE2\"";
         }
     }

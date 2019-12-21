@@ -136,9 +136,6 @@
   <data name="OptionsPage_DiffToolPath" xml:space="preserve">
     <value>比较工具路径</value>
   </data>
-  <data name="OptionsPage_EnableDiagnosticsMode" xml:space="preserve">
-    <value>启用诊断模式</value>
-  </data>
   <data name="OptionsPage_EnableDiffClipboardWithCode" xml:space="preserve">
     <value>启用选中代码与剪贴板内容的比较功能</value>
   </data>

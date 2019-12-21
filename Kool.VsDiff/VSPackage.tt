@@ -35,18 +35,18 @@ namespace <#= resourceNamespace#>
 var resx = Path.ChangeExtension(Host.TemplateFile , BenchmarkLanguage + ".resx");
 using(var reader = new ResXResourceReader(resx) { UseResXDataNodes = true })
 {
-	foreach (System.Collections.DictionaryEntry kv in reader)
-	{
-		var node = (ResXDataNode)kv.Value;
-		if (node.FileRef == null)
-		{
-			var keyName = kv.Key.ToString();
-			var propName = Regex.IsMatch(keyName , @"^\d+") ? "_" + keyName : keyName;
+    foreach (System.Collections.DictionaryEntry kv in reader)
+    {
+        var node = (ResXDataNode)kv.Value;
+        if (node.FileRef == null)
+        {
+            var keyName = kv.Key.ToString();
+            var propName = Regex.IsMatch(keyName , @"^\d+") ? "_" + keyName : keyName;
 #>
         public static string <#= propName#> { get; } = Resx.GetString("<#= keyName#>");
 <#
-		}
-	}
+        }
+    }
 }
 #>
     }

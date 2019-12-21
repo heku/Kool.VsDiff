@@ -1,5 +1,4 @@
 ﻿using EnvDTE;
-using Microsoft;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
@@ -17,54 +16,6 @@ namespace Kool.VsDiff.Models
         public static void Initialize(VsDiffPackage package)
         {
             Package = package;
-
-            OutputWindow.Initialize();
-        }
-
-        public static class OutputWindow
-        {
-            private static IVsOutputWindowPane VsOutputWindowPane;
-
-            public static void Initialize()
-            {
-                var sp = Package as IServiceProvider;
-                VsOutputWindowPane = (IVsOutputWindowPane)sp.GetService(typeof(SVsGeneralOutputWindowPane));
-                Assumes.Present(VsOutputWindowPane);
-            }
-
-            [Conditional("DEBUG")]
-            public static void Debug(string message) => WriteLine("DEBUG", message);
-
-            public static void Info(string message)
-            {
-                if (Package.Options.DiagnosticsMode)
-                {
-                    WriteLine("INFO", message);
-                }
-            }
-
-            public static void Error(string message, Exception exception = null)
-            {
-                string FlattenMessage(Exception ex)
-                {
-                    if (ex.InnerException == null)
-                    {
-                        return ex.Message;
-                    }
-                    else
-                    {
-                        return $"{ex.Message} => {FlattenMessage(ex.InnerException)}";
-                    }
-                }
-
-                WriteLine("ERROR", message + $"[{FlattenMessage(exception)}]");
-            }
-
-            private static void WriteLine(string category, string message)
-            {
-                var output = $"{Environment.NewLine}[{Vsix.PACKAGE}]>{category}: {message}";
-                ErrorHandler.ThrowOnFailure(VsOutputWindowPane.OutputString(output));
-            }
         }
 
         public static class SolutionExplorer
@@ -91,7 +42,7 @@ namespace Kool.VsDiff.Models
                 }
                 catch (Exception ex)
                 {
-                    OutputWindow.Error("Failed to get a single selected file.", ex);
+                    Debug.WriteLine($"Failed to get a single selected file: {ex.Message}.");
                 }
 
                 return false;
@@ -118,7 +69,7 @@ namespace Kool.VsDiff.Models
                 }
                 catch (Exception ex)
                 {
-                    OutputWindow.Error("Failed to get selected files.", ex);
+                    Debug.WriteLine($"Failed to get selected files: {ex.Message}.");
                 }
 
                 return false;

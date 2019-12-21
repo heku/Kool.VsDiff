@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 
@@ -14,7 +15,7 @@ namespace Kool.VsDiff.Models
             Directory.CreateDirectory(path);    // Ensure temp path exists.
             var tempFile = Path.Combine(path, fileName);
             File.AppendAllText(tempFile, content, VsDefaultEncoding);
-            VS.OutputWindow.Info($"Created temp file {tempFile}");
+            Debug.WriteLine($"Created temp file {tempFile}");
             return tempFile;
         }
 
@@ -23,11 +24,11 @@ namespace Kool.VsDiff.Models
             try
             {
                 Directory.Delete(Path.GetDirectoryName(fileName), true);
-                VS.OutputWindow.Info($"Removed temp file {fileName}");
+                Debug.WriteLine($"Removed temp file {fileName}");
             }
             catch (Exception ex)
             {
-                VS.OutputWindow.Error($"Failed to remove temp file {fileName}, Exception {ex.Message}.");
+                Debug.WriteLine($"Failed to remove temp file {fileName}, exception: {ex.Message}.");
             }
         }
     }

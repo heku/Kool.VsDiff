@@ -136,9 +136,6 @@
   <data name="OptionsPage_DiffToolPath" xml:space="preserve">
     <value>Diff tool path</value>
   </data>
-  <data name="OptionsPage_EnableDiagnosticsMode" xml:space="preserve">
-    <value>Enable diagnostics mode.</value>
-  </data>
   <data name="OptionsPage_EnableDiffClipboardWithCode" xml:space="preserve">
     <value>Enable compare Clipboard content with selected code.</value>
   </data>
