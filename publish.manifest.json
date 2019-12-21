@@ -2,7 +2,7 @@
   "$schema": "http://json.schemastore.org/vsix-publish",
   "categories": [
     "Coding",
-    "Tools"
+    "Other"
   ],
   "identity": {
     "internalName": "VsDiff",
