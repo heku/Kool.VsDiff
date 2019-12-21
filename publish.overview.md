@@ -21,4 +21,4 @@ Another open source Visual Studio extension that makes file/code comparison more
 ![Configuration.png](Images/Configuration.png)
 
 ## Feedback
-If you have any question or problem, feel free to open an issue on [GitHub](https://github.com/heku/kool.editproject)
+If you have any question or problem, feel free to open an issue on [GitHub](https://github.com/heku/kool.vsdiff)
