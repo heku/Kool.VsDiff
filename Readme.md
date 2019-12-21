@@ -1,8 +1,10 @@
-## About
+[![master branch](https://img.shields.io/azure-devops/build/heku/d55bc262-1377-4ae3-9410-4c98cfa53de8/13/master?label=master)](https://dev.azure.com/heku/Kool.VsDiff/_build/latest?definitionId=13&branchName=master)
+[![rel branch](https://img.shields.io/azure-devops/build/heku/d55bc262-1377-4ae3-9410-4c98cfa53de8/13/rel?label=rel)](https://dev.azure.com/heku/Kool.VsDiff/_build/latest?definitionId=13&branchName=rel)
+[![deployment](https://vsrm.dev.azure.com/heku/_apis/public/Release/badge/d55bc262-1377-4ae3-9410-4c98cfa53de8/1/2)](https://dev.azure.com/heku/Kool.VsDiff/_dashboards/dashboard/20a03b79-52be-46f5-b869-d5b3a2fc37bf)
+[![marketplace](https://img.shields.io/visual-studio-marketplace/v/heku.vsdiff.svg?label=Marketplace)](https://marketplace.visualstudio.com/items?itemName=heku.vsdiff)
+[![downloads](https://img.shields.io/visual-studio-marketplace/d/heku.vsdiff.svg?label=Downloads)](https://marketplace.visualstudio.com/items?itemName=heku.vsdiff)
 
- master (development)                                         | rel (release)                                                
- ------------------------------------------------------------ | ------------------------------------------------------------ 
- [![Build status](https://ci.appveyor.com/api/projects/status/q0ipkukkvnsj3dss/branch/master?svg=true)](https://ci.appveyor.com/project/heku/kool-vsdiff/branch/master) | [![Build status](https://ci.appveyor.com/api/projects/status/q0ipkukkvnsj3dss/branch/rel?svg=true)](https://ci.appveyor.com/project/heku/kool-vsdiff/branch/rel) 
+--------
 
 Another open source Visual Studio extension that makes file/code comparison more easily.
 
