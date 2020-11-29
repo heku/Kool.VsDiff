@@ -8,7 +8,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-name: 1.8.$(patch)
+name: 2.0.$(patch)
 
 pool:
   vmImage: 'windows-2019'
