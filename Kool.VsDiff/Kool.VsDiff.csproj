@@ -135,7 +135,7 @@
   <ItemGroup>
     <PackageReference Include="Madskristensen.VisualStudio.SDK" Version="14.0.81-pre" PrivateAssets="all" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.VSSDK.BuildTools">
-      <Version>16.4.17</Version>
+      <Version>16.8.3038</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
