@@ -26,7 +26,7 @@ namespace Kool.VsDiff.Commands
         protected override void OnBeforeQueryStatus()
         {
             Visible = ClipboardHelper.TryGetClipboardText(out _clipboardText)
-                && TryGetDocumentActiveDocumentFile(out _documentFile);
+                    && TryGetDocumentActiveDocumentFile(out _documentFile);
         }
 
         protected override void OnExecute()
