@@ -7,6 +7,7 @@
     <UseCodebase>true</UseCodebase>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+    <NoWarn>VSTHRD010</NoWarn>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -53,7 +54,6 @@
     <Compile Include="Commands\DiffClipboardWithDocumentCommand.cs" />
     <Compile Include="Commands\DiffSelectedFilesCommand.cs" />
     <Compile Include="Commands\DiffClipboardWithFileCommand.cs" />
-    <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Models\ClipboardHelper.cs" />
     <Compile Include="Models\CustomDiffTool.cs" />
     <Compile Include="Models\DiffToolFactory.cs" />
