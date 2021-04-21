@@ -32,7 +32,7 @@ namespace Kool.VsDiff.Commands
 
         private bool TryGetSelectionText()
         {
-            _selectionText = (ActiveDocument.Selection as TextSelection)?.Text;
+            _selectionText = (ActiveDocument?.Selection as TextSelection)?.Text;
             return _selectionText?.Length > 0;
         }
 
