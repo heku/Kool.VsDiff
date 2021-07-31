@@ -1,21 +1,30 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29613.14
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kool.VsDiff", "Kool.VsDiff\Kool.VsDiff.csproj", "{E2FA084F-E3B3-4860-BA2B-BC0E2627895C}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31815.197
+MinimumVisualStudioVersion = 16.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kool.VsDiff.2022", "Kool.VsDiff.2022\Kool.VsDiff.2022.csproj", "{E2FA084F-E3B3-4860-BA2B-BC0E2627895C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6DA2A8FB-18BD-44E7-B56F-44EBBD7882D7}"
 	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
 		azure-pipelines.yml = azure-pipelines.yml
-		publish.manifest.json = publish.manifest.json
+		publish.manifest.2019.json = publish.manifest.2019.json
+		publish.manifest.2022.json = publish.manifest.2022.json
 		publish.overview.md = publish.overview.md
 		Readme.md = Readme.md
 		vsix.psm1 = vsix.psm1
 	EndProjectSection
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Kool.VsDiff.Shared", "Kool.VsDiff.Shared\Kool.VsDiff.Shared.shproj", "{227D4ED5-11A3-4073-B226-50FCCA68846A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kool.VsDiff.2019", "Kool.VsDiff.2019\Kool.VsDiff.2019.csproj", "{4EFF824C-8920-4BB0-AF4A-03D99BFEA854}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Kool.VsDiff.Shared\Kool.VsDiff.Shared.projitems*{227d4ed5-11a3-4073-b226-50fcca68846a}*SharedItemsImports = 13
+		Kool.VsDiff.Shared\Kool.VsDiff.Shared.projitems*{4eff824c-8920-4bb0-af4a-03d99bfea854}*SharedItemsImports = 4
+		Kool.VsDiff.Shared\Kool.VsDiff.Shared.projitems*{e2fa084f-e3b3-4860-ba2b-bc0e2627895c}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -25,6 +34,10 @@ Global
 		{E2FA084F-E3B3-4860-BA2B-BC0E2627895C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2FA084F-E3B3-4860-BA2B-BC0E2627895C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2FA084F-E3B3-4860-BA2B-BC0E2627895C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EFF824C-8920-4BB0-AF4A-03D99BFEA854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EFF824C-8920-4BB0-AF4A-03D99BFEA854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EFF824C-8920-4BB0-AF4A-03D99BFEA854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EFF824C-8920-4BB0-AF4A-03D99BFEA854}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
