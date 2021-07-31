@@ -8,10 +8,10 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-name: 2.1.$(patch)
+name: 2.2.$(patch)
 
 pool:
-  vmImage: 'windows-2019'
+  vmImage: 'windows-2022'
 
 steps:
 - task: NuGetToolInstaller@1
@@ -39,14 +39,22 @@ steps:
     configuration: '$(BuildConfiguration)'
     msbuildArgs: '/v:m'
 
+- task: PowerShell@2
+  displayName: Move *.vsix to root
+  inputs:
+    targetType: 'inline'
+    script: |
+       Move-Item -Verbose *.2019/bin/$(BuildConfiguration)/*.vsix VsDiff.2019.vsix
+       Move-Item -Verbose *.2022/bin/$(BuildConfiguration)/*.vsix VsDiff.2022.vsix
+
 - task: CopyFiles@2
   displayName: Select files for publish
   inputs:
     Contents: |
       vsix.psm1
       publish.*
-      Images/*
-      */bin/Release/*.vsix
+      Screenshots/*
+      *.vsix
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
 

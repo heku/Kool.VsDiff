@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="Kool.VsDiff.45821f83-c54b-469f-b733-0a65cfc32fe6" Version="0.0.0" Language="en-US" Publisher="Heku" />
+    <DisplayName>VS Diff</DisplayName>
+    <Description xml:space="preserve">Another open source Visual Studio extension that makes file/code comparison more easily.</Description>
+    <MoreInfo>https://github.com/heku/kool.vsdiff</MoreInfo>
+    <Icon>Resources\Logo.ico</Icon>
+    <Tags>heku;kool;diff;compare</Tags>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+  </Assets>
+</PackageManifest>
