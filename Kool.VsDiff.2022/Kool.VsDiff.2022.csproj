@@ -3,10 +3,9 @@
   <PropertyGroup>
     <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <UICulture>en</UICulture>
     <UseCodebase>true</UseCodebase>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\Key.snk</AssemblyOriginatorKeyFile>
     <NoWarn>VSTHRD010</NoWarn>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -20,7 +19,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Kool.VsDiff</RootNamespace>
     <AssemblyName>Kool.VsDiff</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
     <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
@@ -49,44 +48,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Commands\BaseCommand.cs" />
-    <Compile Include="Commands\DiffClipboardWithCodeCommand.cs" />
-    <Compile Include="Commands\DiffClipboardWithDocumentCommand.cs" />
-    <Compile Include="Commands\DiffSelectedFilesCommand.cs" />
-    <Compile Include="Commands\DiffClipboardWithFileCommand.cs" />
-    <Compile Include="Models\ClipboardHelper.cs" />
-    <Compile Include="Models\CustomDiffTool.cs" />
-    <Compile Include="Models\DiffToolFactory.cs" />
-    <Compile Include="Models\IDiffTool.cs" />
-    <Compile Include="Models\TempFileHelper.cs" />
-    <Compile Include="Models\VS.cs" />
-    <Compile Include="Models\VsDiffTool.cs" />
-    <Compile Include="Ids.cs" />
-    <Compile Include="Pages\VsDiffOptions.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Pages\VsDiffOptionsPage.xaml.cs">
-      <DependentUpon>VsDiffOptionsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VsDiffPackage.cs" />
-    <Compile Include="Vsix.cs" />
-    <Compile Include="VSPackage.Designer.cs">
+    <Compile Include="..\Kool.VsDiff.Linked\VSPackage.Designer.cs" Link="VSPackage.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>VSPackage.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Key.snk" />
     <None Include="source.extension.vsixmanifest" />
-    <None Include="VsDiffPackage.vsct">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="VSPackage.tt">
+    <None Include="..\Kool.VsDiff.Linked\VSPackage.tt" Link="VSPackage.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>VSPackage.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>Kool.VsDiff</CustomToolNamespace>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -99,54 +71,46 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Logo.ico">
+    <VSCTCompile Include="..\Kool.VsDiff.Linked\VsDiffPackage.en.vsct" Link="VsDiffPackage.en.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
+    </VSCTCompile>
+    <VSCTCompile Include="..\Kool.VsDiff.Linked\VsDiffPackage.zh-Hans.vsct" Link="VsDiffPackage.zh-Hans.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
+    </VSCTCompile>
+    <VSCTCompile Include="..\Kool.VsDiff.Linked\VsDiffPackage.vsct" Link="VsDiffPackage.vsct" />
+    <Content Include="..\Kool.VsDiff.Linked\Resources\Logo.ico" Link="Resources\Logo.ico">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="zh-Hans\extension.vsixlangpack">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <VSCTCompile Include="VsDiffPackage.en.vsct">
-      <ResourceName>Menus.ctmenu</ResourceName>
-      <SubType>Designer</SubType>
-    </VSCTCompile>
-    <VSCTCompile Include="VsDiffPackage.zh-Hans.vsct">
-      <ResourceName>Menus.ctmenu</ResourceName>
-      <SubType>Designer</SubType>
-    </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="VSPackage.en.resx">
+    <EmbeddedResource Include="..\Kool.VsDiff.Linked\VSPackage.en.resx" Link="VSPackage.en.resx">
       <MergeWithCTO>true</MergeWithCTO>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="VSPackage.zh-Hans.resx">
+    <EmbeddedResource Include="..\Kool.VsDiff.Linked\VSPackage.zh-Hans.resx" Link="VSPackage.zh-Hans.resx">
       <MergeWithCTO>true</MergeWithCTO>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Page Include="Pages\VsDiffOptionsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+  <ItemGroup Label="Suppressed items">
+    <SuppressFromVsix Include="Microsoft.VisualStudio.TextTemplating.dll" Visible="false" />
+    <SuppressFromVsix Include="Microsoft.VisualStudio.TextTemplating.Interfaces.dll" Visible="false" />
+    <SuppressFromVsix Include="Microsoft.VisualStudio.TextTemplating.VSHost.dll" Visible="false" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Madskristensen.VisualStudio.SDK" Version="14.0.81-pre" PrivateAssets="all" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.SDK">
+      <Version>17.0.0-previews-4-31709-430</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools">
-      <Version>16.8.3038</Version>
+      <Version>17.0.5322-preview5-g2cf1b9c5</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+  <Import Project="..\Kool.VsDiff.Shared\Kool.VsDiff.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
