@@ -6,19 +6,12 @@ namespace Kool.VsDiff.Commands
 {
     internal sealed class DiffClipboardWithFileCommand : BaseCommand
     {
-        public static DiffClipboardWithFileCommand Instance { get; private set; }
-
-        public static void Initialize(VsDiffPackage package)
-        {
-            Instance = new DiffClipboardWithFileCommand(package);
-            Instance.Turn(package.Options.DiffClipboardWithCodeEnabled);
-        }
+        public static DiffClipboardWithFileCommand Instance { get; } = new();
 
         private string _selectedFile;
         private string _clipboardText;
 
-        private DiffClipboardWithFileCommand(VsDiffPackage package)
-            : base(package, Ids.CMD_SET, Ids.DIFF_CLIPBOARD_WITH_FILE_CMD_ID)
+        private DiffClipboardWithFileCommand() : base(Ids.DIFF_CLIPBOARD_WITH_FILE_CMD_ID)
         {
         }
 

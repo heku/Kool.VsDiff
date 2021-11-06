@@ -1,28 +1,22 @@
 ﻿using EnvDTE;
 using Kool.VsDiff.Models;
 using System.IO;
+using static Kool.VsDiff.VsDiffPackage;
 
 namespace Kool.VsDiff.Commands
 {
     internal sealed class DiffClipboardWithCodeCommand : BaseCommand
     {
-        public static DiffClipboardWithCodeCommand Instance { get; private set; }
-
-        public static void Initialize(VsDiffPackage package)
-        {
-            Instance = new DiffClipboardWithCodeCommand(package);
-            Instance.Turn(package.Options.DiffClipboardWithCodeEnabled);
-        }
+        public static DiffClipboardWithCodeCommand Instance { get; } = new();
 
         private string _selectionText;
         private string _clipboardText;
 
-        private DiffClipboardWithCodeCommand(VsDiffPackage package)
-            : base(package, Ids.CMD_SET, Ids.DIFF_CLIPBOARD_WITH_CODE_CMD_ID)
+        private DiffClipboardWithCodeCommand() : base(Ids.DIFF_CLIPBOARD_WITH_CODE_CMD_ID)
         {
         }
 
-        private Document ActiveDocument => Package.IDE.ActiveDocument;
+        private Document ActiveDocument => IDE.ActiveDocument;
 
         protected override void OnBeforeQueryStatus()
         {

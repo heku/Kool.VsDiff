@@ -7,18 +7,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
+using static Kool.VsDiff.VsDiffPackage;
 
 namespace Kool.VsDiff.Models
 {
     internal static class VS
     {
-        private static VsDiffPackage Package;
-
-        public static void Initialize(VsDiffPackage package)
-        {
-            Package = package;
-        }
-
         public static class SolutionExplorer
         {
             private static readonly string SystemDirectorySeparator = Path.DirectorySeparatorChar.ToString();
@@ -28,7 +22,7 @@ namespace Kool.VsDiff.Models
                 file = null;
                 try
                 {
-                    var selectedItems = Package.IDE.SelectedItems;
+                    var selectedItems = IDE.SelectedItems;
                     if (selectedItems.Count != 1)
                     {
                         return false;
@@ -54,7 +48,7 @@ namespace Kool.VsDiff.Models
                 file1 = file2 = null;
                 try
                 {
-                    var selectedItems = Package.IDE.SelectedItems;
+                    var selectedItems = IDE.SelectedItems;
                     if (selectedItems.Count != 2)
                     {
                         return false;
@@ -103,8 +97,8 @@ namespace Kool.VsDiff.Models
                 var containerPtr = IntPtr.Zero;
                 try
                 {
-                    if (Package.MonitorSelection != null &&
-                        Package.MonitorSelection.GetCurrentSelection(out hierarchyPtr, out var itemid, out var multiSelect, out containerPtr) == VSConstants.S_OK)
+                    if (MonitorSelection != null &&
+                        MonitorSelection.GetCurrentSelection(out hierarchyPtr, out var itemid, out var multiSelect, out containerPtr) == VSConstants.S_OK)
                     {
                         var files = new List<string>();
                         if (itemid != VSConstants.VSITEMID_SELECTION)
@@ -178,7 +172,7 @@ namespace Kool.VsDiff.Models
                 => Show(title, message, OLEMSGICON.OLEMSGICON_CRITICAL, OLEMSGBUTTON.OLEMSGBUTTON_OK, OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
 
             public static void Show(string title, string message, OLEMSGICON icon, OLEMSGBUTTON button, OLEMSGDEFBUTTON defaultButton)
-                => ErrorHandler.ThrowOnFailure(VsShellUtilities.ShowMessageBox(Package, message, title, icon, button, defaultButton));
+                => ErrorHandler.ThrowOnFailure(VsShellUtilities.ShowMessageBox(Instance, message, title, icon, button, defaultButton));
         }
     }
 }

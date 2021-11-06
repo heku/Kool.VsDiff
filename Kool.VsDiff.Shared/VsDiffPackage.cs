@@ -1,7 +1,7 @@
 ﻿using EnvDTE80;
 using Kool.VsDiff.Commands;
-using Kool.VsDiff.Models;
 using Kool.VsDiff.Pages;
+using Microsoft;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
@@ -21,13 +21,16 @@ namespace Kool.VsDiff
     [ProvideAutoLoad(Microsoft.VisualStudio.VSConstants.UICONTEXT.ShellInitialized_string, PackageAutoLoadFlags.BackgroundLoad)]
     public sealed class VsDiffPackage : AsyncPackage
     {
-        internal DTE2 IDE { get; private set; }
-        internal VsDiffOptions Options { get; private set; }
-        internal OleMenuCommandService CommandService { get; private set; }
-        internal IVsMonitorSelection MonitorSelection { get; private set; }
+        internal static DTE2 IDE { get; private set; }
+        internal static VsDiffOptions Options { get; private set; }
+        internal static OleMenuCommandService CommandService { get; private set; }
+        internal static IVsMonitorSelection MonitorSelection { get; private set; }
+        internal static VsDiffPackage Instance { get; private set; }
 
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
+            Instance = this;
+
             await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
 
             IDE = await GetServiceAsync(typeof(EnvDTE.DTE)) as DTE2;
@@ -35,13 +38,11 @@ namespace Kool.VsDiff
             MonitorSelection = await GetServiceAsync(typeof(IVsMonitorSelection)) as IVsMonitorSelection;
             Options = GetDialogPage(typeof(VsDiffOptions)) as VsDiffOptions;
 
-            VS.Initialize(this);
-            DiffToolFactory.Initialize(this);
-
-            DiffSelectedFilesCommand.Initialize(this);
-            DiffClipboardWithCodeCommand.Initialize(this);
-            DiffClipboardWithFileCommand.Initialize(this);
-            DiffClipboardWithDocumentCommand.Initialize(this);
+            Assumes.Present(CommandService);
+            CommandService.AddCommand(DiffSelectedFilesCommand.Instance);
+            CommandService.AddCommand(DiffClipboardWithCodeCommand.Instance);
+            CommandService.AddCommand(DiffClipboardWithFileCommand.Instance);
+            CommandService.AddCommand(DiffClipboardWithDocumentCommand.Instance);
 
             Debug.WriteLine("Package is sited and initialized.");
         }

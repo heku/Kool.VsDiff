@@ -12,33 +12,24 @@ namespace Kool.VsDiff.Pages
     [Guid(Ids.OPTIONS_VS_DIFF)]
     internal sealed class VsDiffOptions : UIElementDialogPage
     {
-        private readonly DiffToolOptionsPage _page;
+        private DiffToolOptionsPage _page;
 
-        public VsDiffOptions()
-        {
-            ResetOptions();
-            _page = new DiffToolOptionsPage(this);
-        }
+        public VsDiffOptions() => SetDefaults();
 
         public bool DiffClipboardWithCodeEnabled { get; set; }
-
         public bool DiffClipboardWithFileEnabled { get; set; }
-
         public bool DiffClipboardWithDocumentEnabled { get; set; }
 
         public bool UseCustomDiffTool { get; set; }
-
         public string CustomDiffToolPath { get; set; }
-
         public string CustomDiffToolArgs { get; set; }
 
-        protected override UIElement Child => _page;
+        protected override UIElement Child => _page ??= new DiffToolOptionsPage(this);
 
         protected override void OnActivate(CancelEventArgs e)
         {
             base.OnActivate(e);
-            // Ensure VS Environment Font Settings are applied.
-            _page.UpdateDefaultStyle();
+            _page?.UpdateDefaultStyle();// Ensure VS Environment Font Settings are applied.
         }
 
         protected override void OnApply(PageApplyEventArgs e)
@@ -46,20 +37,25 @@ namespace Kool.VsDiff.Pages
             DiffClipboardWithCodeCommand.Instance.Turn(DiffClipboardWithCodeEnabled);
             DiffClipboardWithFileCommand.Instance.Turn(DiffClipboardWithFileEnabled);
             DiffClipboardWithDocumentCommand.Instance.Turn(DiffClipboardWithDocumentEnabled);
-
             DiffToolFactory.ClearCache();
 
             base.OnApply(e);
         }
 
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            _page = null;
+        }
+
         public override void ResetSettings()
         {
-            ResetOptions();
+            SetDefaults();
             base.ResetSettings();
             Debug.WriteLine("The options have been reset.");
         }
 
-        private void ResetOptions()
+        private void SetDefaults()
         {
             DiffClipboardWithCodeEnabled = true;
             DiffClipboardWithFileEnabled = true;

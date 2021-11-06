@@ -22,7 +22,7 @@ namespace Kool.VsDiff.Models
                 EnableRaisingEvents = true,
                 StartInfo = new ProcessStartInfo(_command, args)
             };
-            process.Exited += delegate { callback?.Invoke(file1, file2); };
+            process.Exited += (_, _) => callback?.Invoke(file1, file2);
             process.Start();
         }
     }

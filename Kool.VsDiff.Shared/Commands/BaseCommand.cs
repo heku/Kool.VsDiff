@@ -3,18 +3,15 @@ using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using static Kool.VsDiff.Models.VS;
+using static Kool.VsDiff.VsDiffPackage;
 
 namespace Kool.VsDiff.Commands
 {
     internal abstract class BaseCommand : OleMenuCommand
     {
-        protected BaseCommand(VsDiffPackage package, string cmdSet, int cmdId)
-            : base(OnBaseCommandEventHandler, null, OnBaseBeforeQueryStatus, new CommandID(Guid.Parse(cmdSet), cmdId))
+        protected BaseCommand(int cmdId) : base(OnBaseCommandEventHandler, null, OnBaseBeforeQueryStatus, new CommandID(Guid.Parse(Ids.CMD_SET), cmdId))
         {
-            Package = package;
         }
-
-        protected VsDiffPackage Package { get; }
 
         private static void OnBaseBeforeQueryStatus(object sender, EventArgs e)
         {
@@ -57,13 +54,13 @@ namespace Kool.VsDiff.Commands
         {
             if (!featureOn)
             {
-                Package.CommandService.RemoveCommand(this);
+                CommandService.RemoveCommand(this);
                 return;
             }
 
-            if (featureOn && Package.CommandService.FindCommand(CommandID) == null)
+            if (featureOn && CommandService.FindCommand(CommandID) == null)
             {
-                Package.CommandService.AddCommand(this);
+                CommandService.AddCommand(this);
             }
         }
     }

@@ -2,24 +2,18 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using static Kool.VsDiff.VsDiffPackage;
 
 namespace Kool.VsDiff.Commands
 {
     internal sealed class DiffClipboardWithDocumentCommand : BaseCommand
     {
-        public static DiffClipboardWithDocumentCommand Instance { get; private set; }
-
-        public static void Initialize(VsDiffPackage package)
-        {
-            Instance = new DiffClipboardWithDocumentCommand(package);
-            Instance.Turn(package.Options.DiffClipboardWithDocumentEnabled);
-        }
+        public static DiffClipboardWithDocumentCommand Instance { get; } = new();
 
         private string _documentFile;
         private string _clipboardText;
 
-        private DiffClipboardWithDocumentCommand(VsDiffPackage package)
-            : base(package, Ids.CMD_SET, Ids.DIFF_CLIPBOARD_WITH_DOCUMENT_CMD_ID)
+        private DiffClipboardWithDocumentCommand() : base(Ids.DIFF_CLIPBOARD_WITH_DOCUMENT_CMD_ID)
         {
         }
 
@@ -42,7 +36,7 @@ namespace Kool.VsDiff.Commands
             file = null;
             try
             {
-                file = Package.IDE.ActiveDocument.FullName;
+                file = IDE.ActiveDocument.FullName;
                 return true;
             }
             catch (Exception ex)
