@@ -92,17 +92,14 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup Label="Suppressed items">
-    <SuppressFromVsix Include="Microsoft.VisualStudio.TextTemplating.dll" Visible="false" />
-    <SuppressFromVsix Include="Microsoft.VisualStudio.TextTemplating.Interfaces.dll" Visible="false" />
-    <SuppressFromVsix Include="Microsoft.VisualStudio.TextTemplating.VSHost.dll" Visible="false" />
-  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.SDK">
       <Version>17.0.0-previews-4-31709-430</Version>
+      <ExcludeAssets>runtime</ExcludeAssets>
+      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools">
       <Version>17.0.5322-preview5-g2cf1b9c5</Version>
