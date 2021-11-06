@@ -27,8 +27,8 @@
       "targetPath": "Screenshots/CompareSelectedFileWithClipboard.png"
     },
     {
-      "pathOnDisk": "Screenshots/CompareSelectionCodeWithClipboard.png",
-      "targetPath": "Screenshots/CompareSelectionCodeWithClipboard.png"
+      "pathOnDisk": "Screenshots/CompareSelectedCodeWithClipboard.png",
+      "targetPath": "Screenshots/CompareSelectedCodeWithClipboard.png"
     },
     {
       "pathOnDisk": "Screenshots/Configuration.png",

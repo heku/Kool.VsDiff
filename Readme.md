@@ -27,9 +27,9 @@ You can install it via Visual Studio 2015/2017/2019/2022 'Extensions' or downloa
 
     ![CompareSelectedFileWithClipboard.png](Screenshots/CompareSelectedFileWithClipboard.png)
 
-- Compare the selection code with Clipboard content.
+- Compare the selected code with Clipboard content.
 
-    ![CompareSelectionCodeWithClipboard.png](Screenshots/CompareSelectionCodeWithClipboard.png)
+    ![CompareSelectedCodeWithClipboard.png](Screenshots/CompareSelectedCodeWithClipboard.png)
 
 - Compare the active document with Clipboard content.
 

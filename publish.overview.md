@@ -13,9 +13,9 @@ Another open source Visual Studio extension that makes file/code comparison more
 
     ![CompareSelectedFileWithClipboard.png](Screenshots/CompareSelectedFileWithClipboard.png)
 
-- Compare the selection code with Clipboard content.
+- Compare the selected code with Clipboard content.
 
-    ![CompareSelectionCodeWithClipboard.png](Screenshots/CompareSelectionCodeWithClipboard.png)
+    ![CompareSelectedCodeWithClipboard.png](Screenshots/CompareSelectedCodeWithClipboard.png)
 
 - Compare the active document with Clipboard content.
 
