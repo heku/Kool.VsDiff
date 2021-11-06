@@ -1,4 +1,4 @@
-[![master branch](https://img.shields.io/azure-devops/build/heku/d55bc262-1377-4ae3-9410-4c98cfa53de8/13/master?label=master)](https://dev.azure.com/heku/Kool.VsDiff/_build/latest?definitionId=13&branchName=master)
+[![dev branch](https://img.shields.io/azure-devops/build/heku/d55bc262-1377-4ae3-9410-4c98cfa53de8/13/dev?label=dev)](https://dev.azure.com/heku/Kool.VsDiff/_build/latest?definitionId=13&branchName=dev)
 [![rel branch](https://img.shields.io/azure-devops/build/heku/d55bc262-1377-4ae3-9410-4c98cfa53de8/13/rel?label=rel)](https://dev.azure.com/heku/Kool.VsDiff/_build/latest?definitionId=13&branchName=rel)
 <br>
 [![2019 deployment](https://vsrm.dev.azure.com/heku/_apis/public/Release/badge/d55bc262-1377-4ae3-9410-4c98cfa53de8/1/2)](https://dev.azure.com/heku/Kool.VsDiff/_dashboards/dashboard/20a03b79-52be-46f5-b869-d5b3a2fc37bf)
