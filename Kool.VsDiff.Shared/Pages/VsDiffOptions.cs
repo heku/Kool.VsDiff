@@ -16,13 +16,14 @@ namespace Kool.VsDiff.Pages
 
         public VsDiffOptions() => SetDefaults();
 
-        public bool DiffClipboardWithCodeEnabled { get; set; }
-        public bool DiffClipboardWithFileEnabled { get; set; }
-        public bool DiffClipboardWithDocumentEnabled { get; set; }
-
         public bool UseCustomDiffTool { get; set; }
         public string CustomDiffToolPath { get; set; }
         public string CustomDiffToolArgs { get; set; }
+
+        public bool DiffClipboardWithCodeEnabled { get; set; }
+        public bool DiffClipboardWithFileEnabled { get; set; }
+        public bool DiffClipboardWithDocumentEnabled { get; set; }
+        public bool PreferToUsePreviewWindow { get; set; }
 
         protected override UIElement Child => _page ??= new DiffToolOptionsPage(this);
 
@@ -57,12 +58,13 @@ namespace Kool.VsDiff.Pages
 
         private void SetDefaults()
         {
-            DiffClipboardWithCodeEnabled = true;
-            DiffClipboardWithFileEnabled = true;
-            DiffClipboardWithDocumentEnabled = true;
             UseCustomDiffTool = false;
             CustomDiffToolPath = @"%ProgramFiles(x86)%\WinMerge\WinMergeU.exe";
             CustomDiffToolArgs = "-e -u \"$FILE1\" \"$FILE2\"";
+            DiffClipboardWithCodeEnabled = true;
+            DiffClipboardWithFileEnabled = true;
+            DiffClipboardWithDocumentEnabled = true;
+            PreferToUsePreviewWindow = true;
         }
     }
 }

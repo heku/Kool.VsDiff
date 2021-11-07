@@ -5,9 +5,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:kv="clr-namespace:Kool.VsDiff"
+             xmlns:kvm="clr-namespace:Kool.VsDiff.Models"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="400"
              FontFamily="{DynamicResource VsFont.EnvironmentFontFamily}"
              FontSize="{DynamicResource VsFont.EnvironmentFontSize}">
+    <UserControl.Resources>
+        <kvm:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+    </UserControl.Resources>
     <StackPanel>
         <GroupBox Padding="0,5">
             <GroupBox.Header>
@@ -37,5 +41,6 @@
         <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithCodeEnabled}" Content="{x:Static kv:VSPackage.OptionsPage_EnableDiffClipboardWithCode}" />
         <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithFileEnabled}" Content="{x:Static kv:VSPackage.OptionsPage_EnableDiffClipboardWithFile}" />
         <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithDocumentEnabled}" Content="{x:Static kv:VSPackage.OptionsPage_EnableDiffClipboardWithDocument}" />
+        <CheckBox Margin="0,5,0,0" IsChecked="{Binding PreferToUsePreviewWindow}" Content="{x:Static kv:VSPackage.OptionsPage_PreferToUsePreviewWindow}" IsEnabled="{Binding UseCustomDiffTool, Mode=OneWay, Converter={StaticResource InverseBooleanConverter}}" />
     </StackPanel>
 </UserControl>

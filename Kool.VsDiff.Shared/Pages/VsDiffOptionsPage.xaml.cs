@@ -19,7 +19,6 @@ namespace Kool.VsDiff.Pages
 
         private void OnBrowseButtonClicked(object sender, RoutedEventArgs e)
         {
-            // TODO: How to localize it?
             var dialog = new OpenFileDialog();
             if (!string.IsNullOrWhiteSpace(_options.CustomDiffToolPath))
             {
@@ -42,12 +41,11 @@ namespace Kool.VsDiff.Pages
 
             try
             {
-                new CustomDiffTool(_options.CustomDiffToolPath, _options.CustomDiffToolArgs)
-                    .Diff(file1, file2, (f1, f2) =>
-                    {
-                        TempFileHelper.RemoveTempFile(f1);
-                        TempFileHelper.RemoveTempFile(f2);
-                    });
+                new CustomDiffTool().Diff(file1, file2, (f1, f2) =>
+                {
+                    TempFileHelper.RemoveTempFile(f1);
+                    TempFileHelper.RemoveTempFile(f2);
+                });
             }
             catch (Exception ex)
             {

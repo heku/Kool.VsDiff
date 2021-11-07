@@ -17,6 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Commands\DiffClipboardWithFileCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\DiffSelectedFilesCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ids.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\InverseBooleanConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ClipboardHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\CustomDiffTool.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DiffToolFactory.cs" />

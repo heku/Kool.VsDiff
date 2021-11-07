@@ -8,7 +8,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-name: 2.2.$(patch)
+name: 2.3.$(patch)
 
 pool:
   vmImage: 'windows-2022'

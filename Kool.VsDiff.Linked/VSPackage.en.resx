@@ -145,6 +145,9 @@
   <data name="OptionsPage_EnableDiffClipboardWithFile" xml:space="preserve">
     <value>Enable compare Clipboard content with selected file.</value>
   </data>
+  <data name="OptionsPage_PreferToUsePreviewWindow" xml:space="preserve">
+    <value>Prefer to use preview window (if supports).</value>
+  </data>
   <data name="OptionsPage_TestButtonContent" xml:space="preserve">
     <value>TEST</value>
   </data>

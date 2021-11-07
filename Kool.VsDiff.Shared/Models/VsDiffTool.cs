@@ -1,7 +1,10 @@
 ﻿using Microsoft;
+using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.IO;
+using static Kool.VsDiff.VsDiffPackage;
 
 namespace Kool.VsDiff.Models
 {
@@ -9,9 +12,9 @@ namespace Kool.VsDiff.Models
     {
         private readonly IVsDifferenceService _diffService;
 
-        public VsDiffTool(VsDiffPackage package)
+        public VsDiffTool()
         {
-            var sp = package as IServiceProvider;
+            var sp = Instance as IServiceProvider;
             _diffService = (IVsDifferenceService)sp.GetService(typeof(SVsDifferenceService));
             Assumes.Present(_diffService);
         }
@@ -23,7 +26,17 @@ namespace Kool.VsDiff.Models
             var caption = $"{name1} vs {name2}";
             var tooltip = file1 + Environment.NewLine + file2;
 
-            _diffService.OpenComparisonWindow2(file1, file2, caption, tooltip, file1, file2, null, null, 0).Show();
+            if (Options.PreferToUsePreviewWindow)
+            {
+                using (new NewDocumentStateScope(__VSNEWDOCUMENTSTATE2.NDS_TryProvisional, VSConstants.NewDocumentStateReason.Navigation))
+                {
+                    _diffService.OpenComparisonWindow2(file1, file2, caption, tooltip, file1, file2, null, null, 0).Show();
+                }
+            }
+            else
+            {
+                _diffService.OpenComparisonWindow2(file1, file2, caption, tooltip, file1, file2, null, null, 0).Show();
+            }
 
             callback?.Invoke(file1, file2);
         }
