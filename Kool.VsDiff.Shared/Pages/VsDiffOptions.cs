@@ -7,64 +7,63 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows;
 
-namespace Kool.VsDiff.Pages
+namespace Kool.VsDiff.Pages;
+
+[Guid(Ids.OPTIONS_VS_DIFF)]
+internal sealed class VsDiffOptions : UIElementDialogPage
 {
-    [Guid(Ids.OPTIONS_VS_DIFF)]
-    internal sealed class VsDiffOptions : UIElementDialogPage
+    private DiffToolOptionsPage _page;
+
+    public VsDiffOptions() => SetDefaults();
+
+    public bool UseCustomDiffTool { get; set; }
+    public string CustomDiffToolPath { get; set; }
+    public string CustomDiffToolArgs { get; set; }
+
+    public bool DiffClipboardWithCodeEnabled { get; set; }
+    public bool DiffClipboardWithFileEnabled { get; set; }
+    public bool DiffClipboardWithDocumentEnabled { get; set; }
+    public bool PreferToUsePreviewWindow { get; set; }
+
+    protected override UIElement Child => _page ??= new DiffToolOptionsPage(this);
+
+    protected override void OnActivate(CancelEventArgs e)
     {
-        private DiffToolOptionsPage _page;
+        base.OnActivate(e);
+        _page?.UpdateDefaultStyle();// Ensure VS Environment Font Settings are applied.
+    }
 
-        public VsDiffOptions() => SetDefaults();
+    protected override void OnApply(PageApplyEventArgs e)
+    {
+        DiffClipboardWithCodeCommand.Instance.Turn(DiffClipboardWithCodeEnabled);
+        DiffClipboardWithFileCommand.Instance.Turn(DiffClipboardWithFileEnabled);
+        DiffClipboardWithDocumentCommand.Instance.Turn(DiffClipboardWithDocumentEnabled);
+        DiffToolFactory.ClearCache();
 
-        public bool UseCustomDiffTool { get; set; }
-        public string CustomDiffToolPath { get; set; }
-        public string CustomDiffToolArgs { get; set; }
+        base.OnApply(e);
+    }
 
-        public bool DiffClipboardWithCodeEnabled { get; set; }
-        public bool DiffClipboardWithFileEnabled { get; set; }
-        public bool DiffClipboardWithDocumentEnabled { get; set; }
-        public bool PreferToUsePreviewWindow { get; set; }
+    protected override void OnClosed(EventArgs e)
+    {
+        base.OnClosed(e);
+        _page = null;
+    }
 
-        protected override UIElement Child => _page ??= new DiffToolOptionsPage(this);
+    public override void ResetSettings()
+    {
+        SetDefaults();
+        base.ResetSettings();
+        Debug.WriteLine("The options have been reset.");
+    }
 
-        protected override void OnActivate(CancelEventArgs e)
-        {
-            base.OnActivate(e);
-            _page?.UpdateDefaultStyle();// Ensure VS Environment Font Settings are applied.
-        }
-
-        protected override void OnApply(PageApplyEventArgs e)
-        {
-            DiffClipboardWithCodeCommand.Instance.Turn(DiffClipboardWithCodeEnabled);
-            DiffClipboardWithFileCommand.Instance.Turn(DiffClipboardWithFileEnabled);
-            DiffClipboardWithDocumentCommand.Instance.Turn(DiffClipboardWithDocumentEnabled);
-            DiffToolFactory.ClearCache();
-
-            base.OnApply(e);
-        }
-
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-            _page = null;
-        }
-
-        public override void ResetSettings()
-        {
-            SetDefaults();
-            base.ResetSettings();
-            Debug.WriteLine("The options have been reset.");
-        }
-
-        private void SetDefaults()
-        {
-            UseCustomDiffTool = false;
-            CustomDiffToolPath = @"%ProgramFiles(x86)%\WinMerge\WinMergeU.exe";
-            CustomDiffToolArgs = "-e -u \"$FILE1\" \"$FILE2\"";
-            DiffClipboardWithCodeEnabled = true;
-            DiffClipboardWithFileEnabled = true;
-            DiffClipboardWithDocumentEnabled = true;
-            PreferToUsePreviewWindow = true;
-        }
+    private void SetDefaults()
+    {
+        UseCustomDiffTool = false;
+        CustomDiffToolPath = @"%ProgramFiles(x86)%\WinMerge\WinMergeU.exe";
+        CustomDiffToolArgs = "-e -u \"$FILE1\" \"$FILE2\"";
+        DiffClipboardWithCodeEnabled = true;
+        DiffClipboardWithFileEnabled = true;
+        DiffClipboardWithDocumentEnabled = true;
+        PreferToUsePreviewWindow = true;
     }
 }

@@ -1,13 +1,12 @@
 ﻿using static Kool.VsDiff.VsDiffPackage;
 
-namespace Kool.VsDiff.Models
+namespace Kool.VsDiff.Models;
+
+internal static class DiffToolFactory
 {
-    internal static class DiffToolFactory
-    {
-        private static IDiffTool CachedDiffTool;
+    private static IDiffTool CachedDiffTool;
 
-        public static IDiffTool CreateDiffTool() => CachedDiffTool ??= Options.UseCustomDiffTool ? new CustomDiffTool() : new VsDiffTool();
+    public static IDiffTool CreateDiffTool() => CachedDiffTool ??= Options.UseCustomDiffTool ? new CustomDiffTool() : new VsDiffTool();
 
-        public static void ClearCache() => CachedDiffTool = null;
-    }
+    public static void ClearCache() => CachedDiffTool = null;
 }

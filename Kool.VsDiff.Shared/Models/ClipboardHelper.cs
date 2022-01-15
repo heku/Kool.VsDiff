@@ -1,13 +1,12 @@
 ﻿using System.Windows;
 
-namespace Kool.VsDiff.Models
+namespace Kool.VsDiff.Models;
+
+internal static class ClipboardHelper
 {
-    internal static class ClipboardHelper
+    public static bool TryGetClipboardText(out string text)
     {
-        public static bool TryGetClipboardText(out string text)
-        {
-            text = Clipboard.GetText();
-            return text?.Length > 0;
-        }
+        text = Clipboard.GetText();
+        return text?.Length > 0;
     }
 }

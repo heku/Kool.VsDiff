@@ -5,52 +5,51 @@ using System.Windows;
 using System.Windows.Controls;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 
-namespace Kool.VsDiff.Pages
+namespace Kool.VsDiff.Pages;
+
+internal sealed partial class DiffToolOptionsPage : UserControl
 {
-    internal sealed partial class DiffToolOptionsPage : UserControl
+    private readonly VsDiffOptions _options;
+
+    public DiffToolOptionsPage(VsDiffOptions options)
     {
-        private readonly VsDiffOptions _options;
+        InitializeComponent();
+        DataContext = _options = options;
+    }
 
-        public DiffToolOptionsPage(VsDiffOptions options)
+    private void OnBrowseButtonClicked(object sender, RoutedEventArgs e)
+    {
+        var dialog = new OpenFileDialog();
+        if (!string.IsNullOrWhiteSpace(_options.CustomDiffToolPath))
         {
-            InitializeComponent();
-            DataContext = _options = options;
-        }
-
-        private void OnBrowseButtonClicked(object sender, RoutedEventArgs e)
-        {
-            var dialog = new OpenFileDialog();
-            if (!string.IsNullOrWhiteSpace(_options.CustomDiffToolPath))
+            var dir = Path.GetDirectoryName(_options.CustomDiffToolPath);
+            if (Directory.Exists(dir))
             {
-                var dir = Path.GetDirectoryName(_options.CustomDiffToolPath);
-                if (Directory.Exists(dir))
-                {
-                    dialog.InitialDirectory = dir;
-                }
-            }
-            if (dialog.ShowDialog() == true)
-            {
-                CustomDiffToolPath.Text = dialog.FileName;
+                dialog.InitialDirectory = dir;
             }
         }
-
-        private void OnTestButtonClicked(object sender, RoutedEventArgs e)
+        if (dialog.ShowDialog() == true)
         {
-            var file1 = TempFileHelper.CreateTempFile("File1.tmp", "$FILE1");
-            var file2 = TempFileHelper.CreateTempFile("File2.tmp", "$FILE2");
+            CustomDiffToolPath.Text = dialog.FileName;
+        }
+    }
 
-            try
+    private void OnTestButtonClicked(object sender, RoutedEventArgs e)
+    {
+        var file1 = TempFileHelper.CreateTempFile("File1.tmp", "$FILE1");
+        var file2 = TempFileHelper.CreateTempFile("File2.tmp", "$FILE2");
+
+        try
+        {
+            new CustomDiffTool().Diff(file1, file2, (f1, f2) =>
             {
-                new CustomDiffTool().Diff(file1, file2, (f1, f2) =>
-                {
-                    TempFileHelper.RemoveTempFile(f1);
-                    TempFileHelper.RemoveTempFile(f2);
-                });
-            }
-            catch (Exception ex)
-            {
-                VS.MessageBox.Error(VSPackage.ErrorMessageTitle, ex.Message);
-            }
+                TempFileHelper.RemoveTempFile(f1);
+                TempFileHelper.RemoveTempFile(f2);
+            });
+        }
+        catch (Exception ex)
+        {
+            VS.MessageBox.Error(VSPackage.ErrorMessageTitle, ex.Message);
         }
     }
 }

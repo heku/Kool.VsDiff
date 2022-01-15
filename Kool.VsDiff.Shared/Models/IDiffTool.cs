@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace Kool.VsDiff.Models
+namespace Kool.VsDiff.Models;
+
+internal interface IDiffTool
 {
-    internal interface IDiffTool
-    {
-        void Diff(string file1, string file2, Action<string, string> callback);
-    }
+    void Diff(string file1, string file2, Action<string, string> callback);
 }
