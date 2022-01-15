@@ -117,6 +117,7 @@ csharp_space_between_parentheses                                   = false
 # Wrapping options
 csharp_preserve_single_line_blocks                                 = true
 csharp_preserve_single_line_statements                             = false
+csharp_style_namespace_declarations=file_scoped:warning
 
 ## Naming conventions
 [*.{cs,vb}]
