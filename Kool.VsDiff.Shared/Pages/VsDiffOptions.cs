@@ -60,7 +60,7 @@ internal sealed class VsDiffOptions : UIElementDialogPage
     {
         UseCustomDiffTool = false;
         CustomDiffToolPath = @"%ProgramFiles(x86)%\WinMerge\WinMergeU.exe";
-        CustomDiffToolArgs = "-e -u \"$FILE1\" \"$FILE2\"";
+        CustomDiffToolArgs = "-e -u \"$FILE1\" \"$FILE2\" -dl \"$NAME1\" -dr \"$NAME2\"";
         DiffClipboardWithCodeEnabled = true;
         DiffClipboardWithFileEnabled = true;
         DiffClipboardWithDocumentEnabled = true;

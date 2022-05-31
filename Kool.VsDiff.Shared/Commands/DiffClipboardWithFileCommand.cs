@@ -8,6 +8,7 @@ internal sealed class DiffClipboardWithFileCommand : BaseCommand
 {
     public static DiffClipboardWithFileCommand Instance { get; } = new();
 
+    private string _selectedName;
     private string _selectedFile;
     private string _clipboardText;
 
@@ -18,7 +19,7 @@ internal sealed class DiffClipboardWithFileCommand : BaseCommand
     protected override void OnBeforeQueryStatus()
     {
         Visible = ClipboardHelper.TryGetClipboardText(out _clipboardText)
-            && SolutionExplorer.TryGetSingleSelectedFile(out _selectedFile);
+            && SolutionExplorer.TryGetSingleSelectedFile(out _selectedName, out _selectedFile);
     }
 
     protected override void OnExecute()
@@ -26,6 +27,6 @@ internal sealed class DiffClipboardWithFileCommand : BaseCommand
         var extension = Path.GetExtension(_selectedFile);
         var clipboardFile = TempFileHelper.CreateTempFile("Clipboard" + extension, _clipboardText);
 
-        DiffToolFactory.CreateDiffTool().Diff(clipboardFile, _selectedFile, (f, _) => TempFileHelper.RemoveTempFile(f));
+        DiffToolFactory.CreateDiffTool().Diff("Clipboard", _selectedName, clipboardFile, _selectedFile, (f, _) => TempFileHelper.RemoveTempFile(f));
     }
 }

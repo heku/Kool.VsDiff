@@ -41,7 +41,7 @@ internal sealed partial class DiffToolOptionsPage : UserControl
 
         try
         {
-            new CustomDiffTool().Diff(file1, file2, (f1, f2) =>
+            new CustomDiffTool().Diff("NAME1", "NAME2", file1, file2, (f1, f2) =>
             {
                 TempFileHelper.RemoveTempFile(f1);
                 TempFileHelper.RemoveTempFile(f2);

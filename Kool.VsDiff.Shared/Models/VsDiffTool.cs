@@ -19,10 +19,10 @@ internal class VsDiffTool : IDiffTool
         Assumes.Present(_diffService);
     }
 
-    public void Diff(string file1, string file2, Action<string, string> callback)
+    public void Diff(string name1, string name2, string file1, string file2, Action<string, string> callback)
     {
-        var name1 = Path.GetFileName(file1);
-        var name2 = Path.GetFileName(file2);
+        name1 ??= Path.GetFileName(file1);
+        name2 ??= Path.GetFileName(file2);
         var caption = $"{name1} vs {name2}";
         var tooltip = file1 + Environment.NewLine + file2;
 

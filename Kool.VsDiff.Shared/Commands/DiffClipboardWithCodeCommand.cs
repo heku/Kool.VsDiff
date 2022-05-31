@@ -34,10 +34,10 @@ internal sealed class DiffClipboardWithCodeCommand : BaseCommand
     {
         var extension = Path.GetExtension(ActiveDocument.Name);
 
-        var selectionFile = TempFileHelper.CreateTempFile("Selection" + extension, _selectionText);
         var clipboardFile = TempFileHelper.CreateTempFile("Clipboard" + extension, _clipboardText);
+        var selectionFile = TempFileHelper.CreateTempFile("Selection" + extension, _selectionText);
 
-        DiffToolFactory.CreateDiffTool().Diff(clipboardFile, selectionFile,
+        DiffToolFactory.CreateDiffTool().Diff("Clipboard", "Selection", clipboardFile, selectionFile,
             (file1, file2) =>
              {
                  TempFileHelper.RemoveTempFile(file1);

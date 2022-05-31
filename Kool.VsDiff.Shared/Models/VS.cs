@@ -17,9 +17,9 @@ internal static class VS
     {
         private static readonly string SystemDirectorySeparator = Path.DirectorySeparatorChar.ToString();
 
-        public static bool TryGetSingleSelectedFile(out string file)
+        public static bool TryGetSingleSelectedFile(out string name, out string file)
         {
-            file = null;
+            name = file = null;
             try
             {
                 var selectedItems = IDE.SelectedItems;
@@ -31,7 +31,8 @@ internal static class VS
                 var files = GetSelectedFiles(selectedItems);
                 if (files?.Count == 1)
                 {
-                    file = files[0];
+                    name = files[0].Name;
+                    file = files[0].File;
                     return !string.IsNullOrEmpty(file);
                 }
             }
@@ -43,9 +44,9 @@ internal static class VS
             return false;
         }
 
-        public static bool TryGetSelectedFiles(out string file1, out string file2)
+        public static bool TryGetSelectedFiles(out string name1, out string name2, out string file1, out string file2)
         {
-            file1 = file2 = null;
+            name1 = name2 = file1 = file2 = null;
             try
             {
                 var selectedItems = IDE.SelectedItems;
@@ -57,8 +58,10 @@ internal static class VS
                 var files = GetSelectedFiles(selectedItems);
                 if (files?.Count == 2)
                 {
-                    file1 = files[0];
-                    file2 = files[1];
+                    name1 = files[0].Name;
+                    file1 = files[0].File;
+                    name2 = files[1].Name;
+                    file2 = files[1].File;
                     return !string.IsNullOrEmpty(file1) && !string.IsNullOrEmpty(file2);
                 }
             }
@@ -70,9 +73,15 @@ internal static class VS
             return false;
         }
 
-        private static List<string> GetSelectedFiles(SelectedItems selectedItems)
+        private struct NameFile
         {
-            List<string> files = null;
+            public string Name;
+            public string File;
+        }
+
+        private static List<NameFile> GetSelectedFiles(SelectedItems selectedItems)
+        {
+            List<NameFile> files = null;
             foreach (SelectedItem item in selectedItems)
             {
                 // The index of file names from 1 to FileCount for the project item
@@ -84,14 +93,14 @@ internal static class VS
                 }
                 if (files == null)
                 {
-                    files = new List<string>();
+                    files = new List<NameFile>();
                 }
-                files.Add(file);
+                files.Add(new NameFile { Name = item.ProjectItem.Name, File = file });
             }
             return files ?? GetSelectedFilesInsideFolderView();
         }
 
-        private static List<string> GetSelectedFilesInsideFolderView()
+        private static List<NameFile> GetSelectedFilesInsideFolderView()
         {
             var hierarchyPtr = IntPtr.Zero;
             var containerPtr = IntPtr.Zero;
@@ -100,7 +109,7 @@ internal static class VS
                 if (MonitorSelection != null &&
                     MonitorSelection.GetCurrentSelection(out hierarchyPtr, out var itemid, out var multiSelect, out containerPtr) == VSConstants.S_OK)
                 {
-                    var files = new List<string>();
+                    var files = new List<NameFile>();
                     if (itemid != VSConstants.VSITEMID_SELECTION)
                     {
                         if (itemid != VSConstants.VSCOOKIE_NIL &&
@@ -108,7 +117,7 @@ internal static class VS
                             Marshal.GetObjectForIUnknown(hierarchyPtr) is IVsHierarchy hierarchy &&
                             TryGetFile(hierarchy, itemid, out var file))
                         {
-                            files.Add(file);
+                            files.Add(new NameFile { File = file });
                         }
                     }
                     else if (multiSelect != null)
@@ -123,7 +132,7 @@ internal static class VS
                                 {
                                     if (TryGetFile(selection.pHier, selection.itemid, out var file))
                                     {
-                                        files.Add(file);
+                                        files.Add(new NameFile { File = file });
                                     }
                                 }
                             }
