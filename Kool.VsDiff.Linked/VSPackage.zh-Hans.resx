@@ -131,7 +131,7 @@
     <value>错误</value>
   </data>
   <data name="OptionsPage_Arguments" xml:space="preserve">
-    <value>参数 ($FILE1, $FILE2)</value>
+    <value>参数 ($FILE1, $FILE2, $NAME1, $NAME2)</value>
   </data>
   <data name="OptionsPage_DiffToolPath" xml:space="preserve">
     <value>比较工具路径</value>
