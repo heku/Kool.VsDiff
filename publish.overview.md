@@ -1,7 +1,13 @@
-Another open source Visual Studio extension that makes file/code comparison more easily.
+Another open source Visual Studio extension that makes file/code comparison easier.
 
 - [VS 2022](https://marketplace.visualstudio.com/items?itemName=Heku.VsDiff2022)
 - [VS 2015/2017/2019](https://marketplace.visualstudio.com/items?itemName=Heku.VsDiff)
+
+### Kind Reminder
+
+This extension was developed because the [official one](https://github.com/madskristensen/FileDiffer) was missing many features I need at that time, and I also wanted to learn
+how to write a Visual Studio extension. Since the official one has added almost all the missing features, I recommend everyone to give preference to that extension and use this
+extension only when the official one does not work for you. Refer to blog [comparing files in visual studio](https://devblogs.microsoft.com/visualstudio/comparing-files-in-visual-studio).
 
 ## Features
 
@@ -29,12 +35,8 @@ Another open source Visual Studio extension that makes file/code comparison more
 
 Thanks for every rating, I'm glad the tool is helpful to you,
 because of a [network issue](https://github.com/heku/Kool.VsDiff/issues/5),
-I cannot reply to you directly in the marketplace.
-
-## Welcome
-
-I'm not a native English speaker, so if you could correct any grammer mistake, it would be very appreciated.
+I may not be able to reply to you directly in the marketplace.
 
 ## Feedback
 
-If you have any question or problem, feel free to open an issue on [GitHub](https://github.com/heku/kool.vsdiff)
+If you have any question, feel free to open an issue on [GitHub](https://github.com/heku/kool.vsdiff).

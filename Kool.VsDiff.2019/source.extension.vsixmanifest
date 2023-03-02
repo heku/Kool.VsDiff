@@ -3,7 +3,7 @@
   <Metadata>
     <Identity Id="Kool.VsDiff.45821f83-c54b-469f-b733-0a65cfc32fe6" Version="0.0.0" Language="en-US" Publisher="Heku" />
     <DisplayName>VS Diff</DisplayName>
-    <Description xml:space="preserve">Another open source Visual Studio extension that makes file/code comparison more easily.</Description>
+    <Description xml:space="preserve">Another open source Visual Studio extension that makes file/code comparison easier.</Description>
     <MoreInfo>https://github.com/heku/kool.vsdiff</MoreInfo>
     <Icon>Resources\Logo.ico</Icon>
     <Tags>heku;kool;diff;compare</Tags>

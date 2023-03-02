@@ -11,11 +11,19 @@
 
 --------
 
-Another open source Visual Studio extension that makes file/code comparison more easily.
+Another open source Visual Studio extension that makes file/code comparison easier.
 
 You can install it via Visual Studio 2015/2017/2019/2022 'Extensions' or download it from
 - [Marketplace for VS2022](https://marketplace.visualstudio.com/items?itemName=heku.VsDiff2022).
 - [Marketplace for VS2019 and below](https://marketplace.visualstudio.com/items?itemName=heku.VsDiff).
+
+
+### Kind Reminder
+
+This extension was developed because the [official one](https://github.com/madskristensen/FileDiffer) was missing many features I need at that time, and I also wanted to learn
+how to write a Visual Studio extension. Since the official one has added almost all the missing features, I recommend everyone to give preference to that extension and use this
+extension only when the official one does not work for you. Refer to blog [comparing files in visual studio](https://devblogs.microsoft.com/visualstudio/comparing-files-in-visual-studio).
+
 
 ## Features
 
@@ -41,7 +49,8 @@ You can install it via Visual Studio 2015/2017/2019/2022 'Extensions' or downloa
 
 ## Thanks
 
-Before and during my development, I took the following documents/projects for reference. Great thanks to the authors who did great job.
+Before and during my development, I referred the following projects and documents,
+and I am very grateful to these authors who have done a great job.
 
 - [Clipboard Diff](https://github.com/einaregilsson/ClipboardDiff)
 - [CodeMaid](https://github.com/codecadwallader/codemaid)
@@ -50,10 +59,12 @@ Before and during my development, I took the following documents/projects for re
 - [Microsoft Docs](https://docs.microsoft.com/en-us/visualstudio/extensibility/)
 - [VS.DiffAllFiles](https://github.com/deadlydog/VS.DiffAllFiles)
 
-## Welcome
-
-I'm not a native English speaker, so if you could correct any grammer mistake, it would be very appreciated.
 
 ## License
 
 - [MIT](LICENSE)
+
+
+---------
+
+I'm not a native English speaker, and I would appreciate it if you could correct any of my English mistakes.

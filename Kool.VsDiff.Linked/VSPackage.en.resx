@@ -121,7 +121,7 @@
     <value>VS Diff</value>
   </data>
   <data name="112" xml:space="preserve">
-    <value>Another open source Visual Studio extension that makes file/code comparison more easily.</value>
+    <value>Another open source Visual Studio extension that makes file/code comparison easier.</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="400" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -146,7 +146,7 @@
     <value>Enable compare Clipboard content with selected file.</value>
   </data>
   <data name="OptionsPage_PreferToUsePreviewWindow" xml:space="preserve">
-    <value>Prefer to use preview window (if supports).</value>
+    <value>Prefer to use preview window (if support).</value>
   </data>
   <data name="OptionsPage_TestButtonContent" xml:space="preserve">
     <value>TEST</value>
