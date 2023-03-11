@@ -3,12 +3,11 @@ trigger:
 - 'rel'
 
 variables:
-  patch: $[counter('versioncounter', 0)]
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-name: 2.5.$(patch)0
+name: 2.6.$(Rev:r)0
 
 pool:
   vmImage: 'windows-2022'
