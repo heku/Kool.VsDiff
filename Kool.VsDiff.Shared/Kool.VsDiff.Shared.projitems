@@ -17,21 +17,20 @@
     <Compile Include="$(MSBuildThisFileDirectory)Commands\DiffClipboardWithFileCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\DiffSelectedFilesCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ids.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\InverseBooleanConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ClipboardHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\CustomDiffTool.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DiffToolFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IDiffTool.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\InverseBooleanConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TempFileHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\VS.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\VsDiffTool.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Package.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\VsDiffOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\VsDiffOptionsPage.xaml.cs">
       <DependentUpon>VsDiffOptionsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)VsDiffPackage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Vsix.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)zh-Hans\extension.vsixlangpack">

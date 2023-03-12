@@ -1,7 +1,7 @@
 ﻿using EnvDTE;
 using Kool.VsDiff.Models;
 using System.IO;
-using static Kool.VsDiff.VsDiffPackage;
+using static Kool.VsDiff.Package;
 
 namespace Kool.VsDiff.Commands;
 

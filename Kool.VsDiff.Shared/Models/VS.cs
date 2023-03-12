@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
-using static Kool.VsDiff.VsDiffPackage;
+using static Kool.VsDiff.Package;
 
 namespace Kool.VsDiff.Models;
 

@@ -1,4 +1,4 @@
-﻿using static Kool.VsDiff.VsDiffPackage;
+﻿using static Kool.VsDiff.Package;
 
 namespace Kool.VsDiff.Models;
 

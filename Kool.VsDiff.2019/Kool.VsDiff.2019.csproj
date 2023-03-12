@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="source.extension.vsixmanifest" />
-    <None Include="..\Kool.VsDiff.Linked\VsDiffPackage.vsct" Link="VsDiffPackage.vsct" />
+    <None Include="..\Kool.VsDiff.Linked\Menus.vsct" Link="Menus.vsct" />
     <None Include="..\Kool.VsDiff.Linked\VSPackage.tt" Link="VSPackage.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>VSPackage.Designer.cs</LastGenOutput>
@@ -77,10 +77,10 @@
     </Content>    
   </ItemGroup>
   <ItemGroup>
-    <VSCTCompile Include="..\Kool.VsDiff.Linked\VsDiffPackage.en.vsct" Link="VsDiffPackage.en.vsct">
+    <VSCTCompile Include="..\Kool.VsDiff.Linked\Menus.en.vsct" Link="Menus.en.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
     </VSCTCompile>
-    <VSCTCompile Include="..\Kool.VsDiff.Linked\VsDiffPackage.zh-Hans.vsct" Link="VsDiffPackage.zh-Hans.vsct">
+    <VSCTCompile Include="..\Kool.VsDiff.Linked\Menus.zh-Hans.vsct" Link="Menus.zh-Hans.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
     </VSCTCompile>
   </ItemGroup>

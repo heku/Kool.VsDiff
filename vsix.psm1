@@ -1,9 +1,8 @@
 
-$VsixCs = Resolve-Path ".\*\Vsix.cs"
-$VsixCsVersionPattern = 'VERSION = "([\d\\.]+)"'
-$VsixCsVersionFormat = 'VERSION = "{0}"'
-
-$SourceManifests = Resolve-Path ".\*\source.extension.vsixmanifest"
+$CsVersionFile = "**\Package.cs"
+$CsVersionPattern = 'VERSION = "([\d\\.]+)"'
+$CsVersionFormat = 'VERSION = "{0}"'
+$VsixManifests = "**\source.extension.vsixmanifest"
 
 function UpdateVersion {
     [cmdletbinding()]
@@ -21,17 +20,18 @@ function UpdateVersionFile {
     param(
         [string] $Version
     )
-    
-    (Get-Content $VsixCs) | ForEach-Object {
-        if ($_ -cmatch $VsixCsVersionPattern){
-            $_ -creplace $VsixCsVersionPattern, ($VsixCsVersionFormat -f $Version)
+
+    $file = Resolve-Path $CsVersionFile
+    (Get-Content $file) | ForEach-Object {
+        if ($_ -cmatch $CsVersionPattern){
+            $_ -creplace $CsVersionPattern, ($CsVersionFormat -f $Version)
         }
         else {
             $_
         }
-    } | Set-Content $VsixCs -Encoding UTF8
+    } | Set-Content $file -Encoding UTF8
 
-    Write-Host "Version updated:" $VsixCs -ForegroundColor Green
+    Write-Host "Version updated:" $file -ForegroundColor Green
 }
 
 function UpdateManifestVersion {
@@ -39,7 +39,8 @@ function UpdateManifestVersion {
         [string] $Version
     )
 
-    $SourceManifests | ForEach-Object {
+    $files = Resolve-Path $VsixManifests
+    $files | ForEach-Object {
         [xml]$content = Get-Content $_
         $content.PackageManifest.Metadata.Identity.Version = $Version
         $content.Save($_)
@@ -56,15 +57,18 @@ function PublishVsix {
         [string] $manifest
     )
     
+    $vsix = Resolve-Path $vsix
+    $manifest = Resolve-Path $manifest
+
     $installation = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -format json | ConvertFrom-Json
     $path = $installation.installationPath
     $vsixPublisher = Join-Path -Path $path -ChildPath "VSSDK\VisualStudioIntegration\Tools\Bin\VsixPublisher.exe" -Resolve
+
     Write-Host "VsixPublisher:" $vsixPublisher -ForegroundColor Green
-    
-    Write-Host "Publish Manifest:" $manifest -ForegroundColor Green
+    Write-Host "Manifest:" $manifest -ForegroundColor Green
     Write-Host "Vsix:" $vsix -ForegroundColor Green
 
-    & $vsixPublisher publish -payload $vsix -publishManifest $manifest -personalAccessToken $PAT
+    & $vsixPublisher publish -payload "$vsix" -publishManifest "$manifest" -personalAccessToken $PAT
 }
 
 Export-ModuleMember -Function UpdateVersion, PublishVsix

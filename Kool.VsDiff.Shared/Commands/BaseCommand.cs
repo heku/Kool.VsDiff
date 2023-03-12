@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using static Kool.VsDiff.Models.VS;
-using static Kool.VsDiff.VsDiffPackage;
+using static Kool.VsDiff.Package;
 
 namespace Kool.VsDiff.Commands;
 

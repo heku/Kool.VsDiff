@@ -29,6 +29,10 @@ indent_size = 2
 [*.json]
 indent_size = 2
 
+# YAML files
+[*.yml]
+indent_size = 2
+
 # Shell scripts
 [*.sh]
 end_of_line = lf

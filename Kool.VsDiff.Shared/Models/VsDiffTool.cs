@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.IO;
-using static Kool.VsDiff.VsDiffPackage;
+using static Kool.VsDiff.Package;
 
 namespace Kool.VsDiff.Models;
 

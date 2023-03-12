@@ -15,17 +15,22 @@ namespace Kool.VsDiff;
 
 [Guid(Ids.PACKAGE)]
 [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-[InstalledProductRegistration("#110", "#112", Vsix.VERSION, IconResourceID = 400)]
+[InstalledProductRegistration("#110", "#112", VERSION, IconResourceID = 400)]
 [ProvideMenuResource("Menus.ctmenu", 1)]
-[ProvideOptionPage(typeof(VsDiffOptions), Vsix.PRODUCT, Vsix.PACKAGE, 0, 0, true, Sort = 100)]
+[ProvideOptionPage(typeof(VsDiffOptions), PRODUCT, NAME, 0, 0, true, Sort = 100)]
 [ProvideAutoLoad(Microsoft.VisualStudio.VSConstants.UICONTEXT.ShellInitialized_string, PackageAutoLoadFlags.BackgroundLoad)]
-public sealed class VsDiffPackage : AsyncPackage
+public sealed class Package : AsyncPackage
 {
+    internal const string VERSION = "0.0.0";
+    internal const string PRODUCT = "Kool";
+    internal const string NAME = "VS Diff";
+    internal const string URL = "https://github.com/heku/kool.vsdiff";
+
     internal static DTE2 IDE { get; private set; }
     internal static VsDiffOptions Options { get; private set; }
     internal static OleMenuCommandService CommandService { get; private set; }
     internal static IVsMonitorSelection MonitorSelection { get; private set; }
-    internal static VsDiffPackage Instance { get; private set; }
+    internal static Package Instance { get; private set; }
 
     protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
     {
