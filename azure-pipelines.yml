@@ -3,7 +3,7 @@ trigger:
 - refs/tags/v*
 
 variables:
-  versionPrefix: 2.5
+  versionPrefix: 2.6
 
 # https://learn.microsoft.com/en-us/azure/devops/pipelines/process/run-number?view=azure-devops&tabs=yaml
 name: $(versionPrefix).$(Rev:r)0
