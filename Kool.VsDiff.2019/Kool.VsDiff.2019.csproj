@@ -57,18 +57,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Kool.VsDiff.Linked\VSPackage.Designer.cs" Link="VSPackage.Designer.cs">
+    <Compile Include="..\Kool.VsDiff.Linked\I18n.Designer.cs" Link="I18n.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>VSPackage.tt</DependentUpon>
+      <DependentUpon>I18n.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="source.extension.vsixmanifest" />
     <None Include="..\Kool.VsDiff.Linked\Menus.vsct" Link="Menus.vsct" />
-    <None Include="..\Kool.VsDiff.Linked\VSPackage.tt" Link="VSPackage.tt">
+    <None Include="..\Kool.VsDiff.Linked\I18n.tt" Link="I18n.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>VSPackage.Designer.cs</LastGenOutput>
+      <LastGenOutput>I18n.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -79,18 +79,24 @@
   <ItemGroup>
     <VSCTCompile Include="..\Kool.VsDiff.Linked\Menus.en.vsct" Link="Menus.en.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
+      <DependentUpon>Menus.vsct</DependentUpon>
     </VSCTCompile>
     <VSCTCompile Include="..\Kool.VsDiff.Linked\Menus.zh-Hans.vsct" Link="Menus.zh-Hans.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
+      <DependentUpon>Menus.vsct</DependentUpon>
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\Kool.VsDiff.Linked\VSPackage.en.resx" Link="VSPackage.en.resx">
+    <EmbeddedResource Include="..\Kool.VsDiff.Linked\I18n.en.resx" Link="I18n.en.resx">
       <MergeWithCTO>true</MergeWithCTO>
+      <LogicalName>VSPackage.en.resources</LogicalName>
+      <DependentUpon>I18n.tt</DependentUpon>      
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\Kool.VsDiff.Linked\VSPackage.zh-Hans.resx" Link="VSPackage.zh-Hans.resx">
+    <EmbeddedResource Include="..\Kool.VsDiff.Linked\I18n.zh-Hans.resx" Link="I18n.zh-Hans.resx">
       <MergeWithCTO>true</MergeWithCTO>
+      <LogicalName>VSPackage.zh-Hans.resources</LogicalName>
+      <DependentUpon>I18n.tt</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

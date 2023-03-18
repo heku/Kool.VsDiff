@@ -40,7 +40,7 @@ internal abstract class BaseCommand : OleMenuCommand
         }
         catch (Exception ex)
         {
-            MessageBox.Error(VSPackage.ErrorMessageTitle, ex.Message);
+            MessageBox.Error(I18n.ErrorMessageTitle, ex.Message);
         }
     }
 

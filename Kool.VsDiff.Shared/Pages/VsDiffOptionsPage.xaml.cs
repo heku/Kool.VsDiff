@@ -49,7 +49,7 @@ internal sealed partial class DiffToolOptionsPage : UserControl
         }
         catch (Exception ex)
         {
-            VS.MessageBox.Error(VSPackage.ErrorMessageTitle, ex.Message);
+            VS.MessageBox.Error(I18n.ErrorMessageTitle, ex.Message);
         }
     }
 }

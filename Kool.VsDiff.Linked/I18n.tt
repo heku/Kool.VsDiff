@@ -11,7 +11,6 @@ const string BenchmarkLanguage = "en";
 
 var resourceNameWithoutCulture = Path.GetFileNameWithoutExtension(Host.TemplateFile);
 var resourceNamespace = Host.ResolveParameterValue("directiveId", "namespaceDirectiveProcessor", "namespaceHint") ?? string.Empty;
-var resourceFullNameWithoutCulture = resourceNamespace + "." + resourceNameWithoutCulture;
 #>
 
 // ------------------------------------------------------------------------------
@@ -29,7 +28,7 @@ namespace <#= resourceNamespace#>
     /// </summary>
     static class <#= resourceNameWithoutCulture#>
     {
-        static readonly ResourceManager Resx = new ResourceManager("<#= resourceFullNameWithoutCulture#>", typeof(<#= resourceNameWithoutCulture#>).Assembly);
+        static readonly ResourceManager Resx = new ResourceManager("VSPackage", typeof(<#= resourceNameWithoutCulture#>).Assembly);
 
 <#
 var resx = Path.ChangeExtension(Host.TemplateFile , BenchmarkLanguage + ".resx");
