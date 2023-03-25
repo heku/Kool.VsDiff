@@ -8,7 +8,7 @@
 
 --------
 
-Another open source Visual Studio extension that makes file/code comparison easier.
+Another open source Visual Studio extension to make file/code comparison easier.
 
 You can install it via Visual Studio 2015/2017/2019/2022 'Extensions' or download it from
 - [Marketplace for VS2022](https://marketplace.visualstudio.com/items?itemName=heku.VsDiff2022).

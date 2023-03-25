@@ -2,6 +2,6 @@
 <PackageLanguagePackManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
   <Metadata>
     <DisplayName>VS Diff</DisplayName>
-    <Description>一个开源的 Visual Studio 拓展，方便用户对文件、代码进行比较。</Description>
+    <Description>一个开源的 Visual Studio 扩展，方便用户对文件、代码进行比较。</Description>
   </Metadata>
 </PackageLanguagePackManifest>
