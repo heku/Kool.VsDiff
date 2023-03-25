@@ -5,13 +5,7 @@
     "Other"
   ],
   "identity": {
-    "internalName": "VsDiff",
-    "displayName": "VS Diff",
-    "tags": [
-      "kool",
-      "diff",
-      "compare"
-    ]
+    "internalName": "VsDiff"
   },
   "overview": "publish.overview.md",
   "assetFiles": [
