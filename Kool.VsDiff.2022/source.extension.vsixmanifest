@@ -6,7 +6,7 @@
     <Description xml:space="preserve">Another open source Visual Studio extension that makes file/code comparison easier.</Description>
     <MoreInfo>https://github.com/heku/kool.vsdiff</MoreInfo>
     <Icon>Resources\Logo.ico</Icon>
-    <Tags>kool;diff;compare</Tags>
+    <Tags>kool;diff;compare;何苦;差异;比较</Tags>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
