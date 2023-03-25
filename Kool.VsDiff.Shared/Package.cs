@@ -15,7 +15,6 @@ namespace Kool.VsDiff;
 
 [Guid(Ids.PACKAGE)]
 [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-[InstalledProductRegistration("#110", "#112", VERSION, IconResourceID = 400)]
 [ProvideMenuResource("Menus.ctmenu", 1)]
 [ProvideOptionPage(typeof(VsDiffOptions), PRODUCT, NAME, 0, 0, true, Sort = 100)]
 [ProvideAutoLoad(Microsoft.VisualStudio.VSConstants.UICONTEXT.ShellInitialized_string, PackageAutoLoadFlags.BackgroundLoad)]

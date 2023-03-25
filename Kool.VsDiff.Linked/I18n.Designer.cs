@@ -15,8 +15,6 @@ namespace Kool.VsDiff
     {
         static readonly ResourceManager Resx = new ResourceManager("VSPackage", typeof(I18n).Assembly);
 
-        public static string _110 { get; } = Resx.GetString("110");
-        public static string _112 { get; } = Resx.GetString("112");
         public static string ErrorMessageTitle { get; } = Resx.GetString("ErrorMessageTitle");
         public static string OptionsPage_Arguments { get; } = Resx.GetString("OptionsPage_Arguments");
         public static string OptionsPage_DiffToolPath { get; } = Resx.GetString("OptionsPage_DiffToolPath");
