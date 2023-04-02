@@ -1,12 +1,17 @@
 trigger:
 - '*'
-- refs/tags/v*
+- refs/tags/v*.*
 
 variables:
   versionPrefix: 2.7
+  isTag: ${{ startsWith(variables['Build.SourceBranch'], 'refs/tags/v') }}
+  isHeku: ${{ eq(variables['Build.RequestedFor'], 'Heku') }}
+  shouldRelease: ${{ and(eq(variables.isHeku, 'True'), eq(variables.isTag, 'True')) }}
+  ${{ if eq(variables.shouldRelease, 'True') }}:
+    tagVersion: ${{ replace(variables['Build.SourceBranchName'], 'v', '') }}
 
 # https://learn.microsoft.com/en-us/azure/devops/pipelines/process/run-number?view=azure-devops&tabs=yaml
-name: $(versionPrefix).$(Rev:r)0
+name: ${{ coalesce(variables.tagVersion, '$(versionPrefix).$(Rev:r)') }}
 
 jobs:
 - job: build
@@ -70,11 +75,7 @@ jobs:
   # https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#use-a-variable-group
   variables:
   - group: variables-group
-  - name: isHeku
-    value: $[eq(variables['Build.RequestedFor'], 'Heku')]
-  - name: isTag
-    value: $[startsWith(variables['Build.SourceBranch'], 'refs/tags/v')]
-  condition: and(eq(variables.isHeku, 'True'), eq(variables.isTag, 'True'))
+  condition: ${{ eq(variables.shouldRelease, 'True') }}
   environment: publish-vsix
   strategy:
     runOnce:
