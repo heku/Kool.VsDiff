@@ -74,7 +74,7 @@
   <ItemGroup>
     <Content Include="..\Kool.VsDiff.Linked\Resources\Logo.ico" Link="Resources\Logo.ico">
       <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>    
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <VSCTCompile Include="..\Kool.VsDiff.Linked\Menus.en.vsct" Link="Menus.en.vsct">
@@ -110,7 +110,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools">
-      <Version>17.0.5232</Version>
+      <Version>17.5.4072</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
