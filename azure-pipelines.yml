@@ -3,7 +3,7 @@ trigger:
 - refs/tags/v*.*
 
 variables:
-  versionPrefix: 2.7
+  versionPrefix: 2.8
   isTag: ${{ startsWith(variables['Build.SourceBranch'], 'refs/tags/v') }}
   isHeku: ${{ eq(variables['Build.RequestedFor'], 'Heku') }}
   shouldRelease: ${{ and(eq(variables.isHeku, 'True'), eq(variables.isTag, 'True')) }}
