@@ -48,6 +48,8 @@ public sealed class Package : AsyncPackage
         CommandService.AddCommand(DiffClipboardWithFileCommand.Instance);
         CommandService.AddCommand(DiffClipboardWithDocumentCommand.Instance);
 
-        Debug.WriteLine("Package is sited and initialized.");
+        Options.RefreshCommandsState();
+
+        Debug.WriteLine(NAME + " Package is initialized.");
     }
 }

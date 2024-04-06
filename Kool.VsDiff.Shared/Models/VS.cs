@@ -91,10 +91,7 @@ internal static class VS
                 {
                     continue;
                 }
-                if (files == null)
-                {
-                    files = new List<NameFile>();
-                }
+                files ??= new List<NameFile>();
                 files.Add(new NameFile { Name = item.ProjectItem.Name, File = file });
             }
             return files ?? GetSelectedFilesInsideFolderView();

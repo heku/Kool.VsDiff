@@ -20,6 +20,7 @@ internal sealed class VsDiffOptions : UIElementDialogPage
     public string CustomDiffToolPath { get; set; }
     public string CustomDiffToolArgs { get; set; }
 
+    public bool DiffSelectedFilesEnabled { get; set; }
     public bool DiffClipboardWithCodeEnabled { get; set; }
     public bool DiffClipboardWithFileEnabled { get; set; }
     public bool DiffClipboardWithDocumentEnabled { get; set; }
@@ -35,12 +36,18 @@ internal sealed class VsDiffOptions : UIElementDialogPage
 
     protected override void OnApply(PageApplyEventArgs e)
     {
-        DiffClipboardWithCodeCommand.Instance.Turn(DiffClipboardWithCodeEnabled);
-        DiffClipboardWithFileCommand.Instance.Turn(DiffClipboardWithFileEnabled);
-        DiffClipboardWithDocumentCommand.Instance.Turn(DiffClipboardWithDocumentEnabled);
+        RefreshCommandsState();
         DiffToolFactory.ClearCache();
 
         base.OnApply(e);
+    }
+
+    public void RefreshCommandsState()
+    {
+        DiffSelectedFilesCommand.Instance.Turn(DiffSelectedFilesEnabled);
+        DiffClipboardWithCodeCommand.Instance.Turn(DiffClipboardWithCodeEnabled);
+        DiffClipboardWithFileCommand.Instance.Turn(DiffClipboardWithFileEnabled);
+        DiffClipboardWithDocumentCommand.Instance.Turn(DiffClipboardWithDocumentEnabled);
     }
 
     protected override void OnClosed(EventArgs e)
@@ -61,6 +68,7 @@ internal sealed class VsDiffOptions : UIElementDialogPage
         UseCustomDiffTool = false;
         CustomDiffToolPath = @"%ProgramFiles(x86)%\WinMerge\WinMergeU.exe";
         CustomDiffToolArgs = "-e -u \"$FILE1\" \"$FILE2\" -dl \"$NAME1\" -dr \"$NAME2\"";
+        DiffSelectedFilesEnabled = true;
         DiffClipboardWithCodeEnabled = true;
         DiffClipboardWithFileEnabled = true;
         DiffClipboardWithDocumentEnabled = true;

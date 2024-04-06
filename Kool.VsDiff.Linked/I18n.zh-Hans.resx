@@ -135,6 +135,9 @@
   <data name="OptionsPage_EnableDiffClipboardWithFile" xml:space="preserve">
     <value>启用选中文件与剪贴板内容的比较功能</value>
   </data>
+  <data name="OptionsPage_EnableDiffSelectedFiles" xml:space="preserve">
+    <value>启用两个选中文件的比较功能</value>
+  </data>
   <data name="OptionsPage_PreferToUsePreviewWindow" xml:space="preserve">
     <value>优先使用预览窗口 (如果支持的话)</value>
   </data>

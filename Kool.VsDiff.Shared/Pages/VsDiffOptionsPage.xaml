@@ -38,6 +38,7 @@
         </Grid>
       </StackPanel>
     </GroupBox>
+    <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffSelectedFilesEnabled}" Content="{x:Static kv:I18n.OptionsPage_EnableDiffSelectedFiles}" />
     <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithCodeEnabled}" Content="{x:Static kv:I18n.OptionsPage_EnableDiffClipboardWithCode}" />
     <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithFileEnabled}" Content="{x:Static kv:I18n.OptionsPage_EnableDiffClipboardWithFile}" />
     <CheckBox Margin="0,5,0,0" IsChecked="{Binding DiffClipboardWithDocumentEnabled}" Content="{x:Static kv:I18n.OptionsPage_EnableDiffClipboardWithDocument}" />
