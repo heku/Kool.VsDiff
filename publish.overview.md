@@ -1,6 +1,6 @@
 Another open source Visual Studio extension to make file/code comparison easier.
 
-- [VS 2022](https://marketplace.visualstudio.com/items?itemName=Heku.VsDiff2022)
+- [VS 2022/2026](https://marketplace.visualstudio.com/items?itemName=Heku.VsDiff2022)
 - [VS 2015/2017/2019](https://marketplace.visualstudio.com/items?itemName=Heku.VsDiff)
 
 ### Kind Reminder
